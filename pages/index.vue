@@ -1,65 +1,52 @@
-<template>
-  <section class="container">
-    <div>
-      <logo/>
-      <h1 class="title">
-        praburangki.tech
-      </h1>
-      <h2 class="subtitle">
-        Personal Blog
-      </h2>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          class="button--green">Documentation</a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          class="button--grey">GitHub</a>
-      </div>
-    </div>
-  </section>
+<template lang="pug">
+  section.section
+    .container
+      .sectionWrapper
+        div
+          img.avatar(src="~assets/images/pic.jpg")
+        .has-text-centered
+          h1.is-size-3 Hi
+          h1.is-size-2 I'm Prabu
+          h1.is-size-3 A Full-Stack Web Developer
+        .socials
+          Github
+          Twitter
+          LinkedIn
+          Gmail
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue';
+import Twitter from '~/components/Twitter';
+import Github from '~/components/Github';
+import LinkedIn from '~/components/LinkedIn';
+import Gmail from '~/components/Gmail';
 
 export default {
   components: {
-    Logo
+    Twitter,
+    Github,
+    LinkedIn,
+    Gmail
   }
 };
 </script>
 
-<style>
-.container {
-  min-height: 100vh;
+<style lang="scss" scoped>
+.avatar {
+  width: 220px;
+  height: auto;
+  border-radius: 50%;
+  margin-bottom: 20px;
+}
+
+.socials {
+  width: 200px;
+  margin-top: 20px;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
+  justify-content: space-between;
 
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
+  div {
+    width: 30px;
+  }
 }
 </style>

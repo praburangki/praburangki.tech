@@ -1,55 +1,55 @@
-<template>
-  <div>
-    <nuxt/>
-  </div>
+<template lang="pug">
+  div.main
+    Navbar(:navIsVisible="navIsVisible" @toggleNavbar="toggleNavbar")
+    main(:class="{ navIsVisible: navIsVisible }")
+      nuxt
+      footer.has-text-centered
+        div
+          |Made with
+          a(href="https://nuxtjs.org/" target="_blank")  Nuxt
+          |  and
+          a(href="https://bulma.io" target="_blank")  Bulma
 </template>
 
-<style>
-html {
-  font-family: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-    Roboto, 'Helvetica Neue', Arial, sans-serif;
-  font-size: 16px;
-  word-spacing: 1px;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
-  -moz-osx-font-smoothing: grayscale;
-  -webkit-font-smoothing: antialiased;
-  box-sizing: border-box;
-}
+<script>
+import Navbar from '~/components/Navbar';
 
-*,
-*:before,
-*:after {
-  box-sizing: border-box;
-  margin: 0;
-}
+export default {
+  components: {
+    Navbar
+  },
+  data: () => ({
+    navIsVisible: false
+  }),
+  methods: {
+    toggleNavbar() {
+      this.navIsVisible = !this.navIsVisible;
+    }
+  }
+};
+</script>
 
-.button--green {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #3b8070;
-  color: #3b8070;
-  text-decoration: none;
-  padding: 10px 30px;
+<style lang="scss" scoped>
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-
-.button--green:hover {
-  color: #fff;
-  background-color: #3b8070;
+footer {
+  margin-top: 120px;
+  padding-bottom: 30px;
 }
+main {
+  transition: transform 0.5s;
+  transform: translateZ(0);
+  backface-visibility: hidden;
 
-.button--grey {
-  display: inline-block;
-  border-radius: 4px;
-  border: 1px solid #35495e;
-  color: #35495e;
-  text-decoration: none;
-  padding: 10px 30px;
-  margin-left: 15px;
-}
+  &.navIsVisible {
+    transform: translateY(80px);
 
-.button--grey:hover {
-  color: #fff;
-  background-color: #35495e;
+    @media only screen and (min-width: 768px) {
+      transform: translateY(170px);
+    }
+  }
 }
 </style>

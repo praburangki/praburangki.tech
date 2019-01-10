@@ -1,0 +1,19 @@
+$S: 480px;
+$M: 768px;
+$L: 1170px;
+
+@mixin mediaQ($viewport) {
+  @if $viewport == S {
+    @media only screen and (min-width: $S) {
+      @content;
+    }
+  } @else if $viewport == M {
+    @media only screen and (min-width: $M) {
+      @content;
+    }
+  } @else if $viewport == L {
+    @media only screen and (min-width: $L) {
+      @content;
+    }
+  }
+}
