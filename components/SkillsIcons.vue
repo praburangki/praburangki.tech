@@ -1,5 +1,5 @@
 <template lang="pug">
-  .columns.is-mobile.is-multiline
+  .skillsIcons.columns.is-mobile.is-multiline
     .column.has-text-centered.is-2-tablet.is-6-mobile(v-for="name in names")
       .iconContainer
         div halo
@@ -21,6 +21,9 @@ export default {
 
 
 <style lang="scss" scoped>
+.skillsIcons {
+  margin-bottom: 50px;
+}
 .iconContainer {
   height: 100%;
   display: flex;
