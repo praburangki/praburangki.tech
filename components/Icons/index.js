@@ -30,3 +30,14 @@ export default [
   createIcon('Firebase', FirebaseIcon),
   createIcon('Typescript', TypescriptIcon)
 ];
+
+export const iconObj = {
+  pwa: createIcon('Progressive Web Apps', PwaIcon),
+  rails: createIcon('Ruby on Rails', RailsIcon),
+  firebase: createIcon('Firebase', FirebaseIcon),
+  vue: createIcon('VueJS', VueIcon),
+  react: createIcon('ReactJS', ReactIcon),
+  node: createIcon('NodeJS', NodeIcon),
+  js: createIcon('Javascript', JavascriptIcon),
+  angular: createIcon('Angular', AngularIcon)
+};

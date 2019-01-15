@@ -2,7 +2,7 @@
   .skillsIcons.columns.is-mobile.is-multiline
     .column.has-text-centered.is-2-tablet.is-6-mobile(v-for="name in names")
       .iconContainer
-        div halo
+        div
         .iconSvg
           component(:is="name.component")
         .iconName.has-text-centered {{ name.name }}
@@ -12,7 +12,6 @@
 import iconComponents from '~/components/Icons';
 
 export default {
-  components: {},
   data: () => ({
     names: [...iconComponents]
   })
@@ -25,6 +24,7 @@ export default {
   margin-bottom: 50px;
 }
 .iconContainer {
+  margin-top: 30px;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -45,7 +45,7 @@ export default {
     }
 
     svg {
-      filter: drop-shadow(0px 0px 5px rgba(255, 255, 255, 1));
+      filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 1));
     }
   }
 

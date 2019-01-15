@@ -14,6 +14,9 @@
 }
 
 @mixin cardItem($primary, $secondary) {
+  .button {
+    background-color: $primary;
+  }
   h2 {
     background-color: $primary;
 
@@ -33,7 +36,7 @@
       }
 
       &:after {
-        @include borderColors($primary, $primary, transparent, transparent);
+        @include borderColors($secondary, $secondary, transparent, transparent);
       }
     }
   }

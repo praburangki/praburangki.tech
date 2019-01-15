@@ -24,6 +24,12 @@ $L: 1170px;
   }
 }
 
+@mixin media-eq($w) {
+  @media (width: $w) {
+    @content;
+  }
+}
+
 @mixin media-max($max) {
   @media (max-width: $max) {
     @content;

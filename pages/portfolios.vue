@@ -10,26 +10,35 @@
           .column.is-narrow
             p.long-par.has-text-centered
               |After 5+ years working as professional developer, here are some of the works that I've accomplished.
-        .columns.is-multiline
+        .columns.is-multiline.portos
           Card(
             v-for="item in cards",
             :key="item.name",
-            :name="item.name",
-            :short="item.short",
-            :long="item.long",
-            :techStack="item.techStack"
+            :item="item"
           )
 </template>
 
 <script>
 import Card from '~/components/Card';
 
-const generateCard = (name, short, long, techStack, link) => ({
+const generateCard = (
   name,
   short,
   long,
   techStack,
-  link
+  imageSrc,
+  link,
+  className,
+  fullWidth = true
+) => ({
+  name,
+  short,
+  long,
+  techStack,
+  imageSrc,
+  link,
+  className,
+  fullWidth
 });
 
 export default {
@@ -42,20 +51,64 @@ export default {
         'Carriage',
         'Food Delivery Service',
         'Startup based in Kuwait that provides delivery services for multiple countries.',
-        ['rails', 'jquery'],
-        'https://trycarriage.com/'
+        ['rails', 'js'],
+        require('~/assets/images/carriage.jpg'),
+        'https://trycarriage.com/',
+        'carriage',
+        false
       ),
       generateCard(
         'Arctic Imagination',
         'News and Catalogs',
-        'An international library collaboration about the disappearing of ice.',
-        ['node', 'jquery'],
-        'http://www.arcticimagination.com/'
+        'An international library collaboration about the disappearing of the ice.',
+        ['node', 'js'],
+        require('~/assets/images/arctic.jpg'),
+        'http://www.arcticimagination.com/',
+        'arctic'
+      ),
+      generateCard(
+        "Pond's Men",
+        'Trivia Quiz',
+        "Trivia Quiz for the FIFA World Cup 2018 to win prizes from Pond's Men",
+        ['node', 'react', 'firebase'],
+        require('~/assets/images/ponds.jpg'),
+        'https://triplelakimasakini.goal.com/',
+        'ponds'
+      ),
+      generateCard(
+        'GDG Bali',
+        'Community & Events',
+        'Events for the Google Developer Group community in Bali.',
+        ['rails', 'node', 'vue'],
+        require('~/assets/images/gdg.jpg'),
+        'https://gdgbali.com/',
+        'gdg'
+      ),
+      generateCard(
+        'Nujeks',
+        'Administration System',
+        'Administration System for the Nusantara Jaya Ekspress logistics company.',
+        ['rails', 'node', 'vue'],
+        require('~/assets/images/gdg.jpg'),
+        'https://nujeks.com',
+        'nujeks'
+      ),
+      generateCard(
+        'Magloft',
+        'Digital Publishing',
+        'Digital publishing solution for indies, magazine publishers, bloggers and more!',
+        ['rails', 'js'],
+        require('~/assets/images/magloft.jpg'),
+        'https://www.magloft.com/',
+        'magloft'
       )
     ]
   })
 };
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
+.portos {
+  margin-top: 30px;
+}
 </style>
