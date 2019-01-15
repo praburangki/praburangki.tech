@@ -1,0 +1,70 @@
+@mixin trouble($t: null, $r: null, $b: null, $l: null, $pos: absolute) {
+  position: $pos;
+  top: $t;
+  right: $r;
+  bottom: $b;
+  left: $l;
+}
+
+@mixin borderColors($t, $r, $l, $b) {
+  border-top-color: $t;
+  border-right-color: $r;
+  border-bottom-color: $l;
+  border-left-color: $b;
+}
+
+@mixin cardItem($primary, $secondary) {
+  h2 {
+    background-color: $primary;
+
+    &:after {
+      @include borderColors($primary, $primary, transparent, transparent);
+    }
+
+    &:before {
+      @include borderColors(transparent, $secondary, $secondary, transparent);
+    }
+  }
+
+  &.cardActive {
+    h2 {
+      &:before {
+        @include borderColors(transparent, $primary, $primary, transparent);
+      }
+
+      &:after {
+        @include borderColors($primary, $primary, transparent, transparent);
+      }
+    }
+  }
+
+  .cardBtnAction {
+    background-color: $primary;
+
+    &:hover {
+      background-color: $secondary;
+    }
+  }
+
+  .cardFooter {
+    h4 {
+      color: $secondary;
+    }
+
+    a {
+      background-color: $secondary;
+    }
+  }
+
+  &.cardActive {
+    .cardContent {
+      background-color: #eaeaea;
+    }
+    .cardFooter {
+      background-color: $primary;
+    }
+    .cardBtnAction {
+      border-color: #eaeaea;
+    }
+  }
+}

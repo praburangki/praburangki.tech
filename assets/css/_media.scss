@@ -17,3 +17,15 @@ $L: 1170px;
     }
   }
 }
+
+@mixin media-min($min) {
+  @media (min-width: $min) {
+    @content;
+  }
+}
+
+@mixin media-max($max) {
+  @media (max-width: $max) {
+    @content;
+  }
+}

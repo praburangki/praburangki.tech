@@ -25,7 +25,7 @@ module.exports = {
   /*
   ** Customize the progress-bar color
   */
-  loading: { color: 'blue', height: '100px' },
+  loading: { color: 'blue' },
 
   /*
   ** Global CSS
@@ -50,6 +50,9 @@ module.exports = {
         features: {
           customProperties: false
         }
+      },
+      autoprefixer: {
+        grid: true
       }
     },
     /*

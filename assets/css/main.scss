@@ -58,33 +58,25 @@ a {
 
 .mainTitle {
   width: 100%;
-  position: relative;
-  margin-bottom: 1.5rem;
-  &:before,
-  &:after {
-    position: absolute;
-    top: 50%;
-    display: block;
-    width: 25%;
-    border-bottom: 5px solid $darker-red;
-    content: '';
+  display: flex;
+  align-items: center;
 
-    @include mediaQ(S) {
-      width: 30%;
-    }
-
-    @include mediaQ(M) {
-      width: 35%;
-    }
-
-    @include mediaQ(L) {
-      width: 40%;
-    }
+  .redLine {
+    height: 5px;
+    background-color: $darker-red;
   }
 
-  &:after {
-    right: 0;
+  .text {
+    padding: 0 20px;
   }
+
+  .isFlex {
+    flex: 1 0 0;
+  }
+}
+
+.long-par {
+  max-width: 630px;
 }
 
 hr {
@@ -95,4 +87,9 @@ hr {
   background-color: $darker-red;
   margin-left: auto;
   margin-right: auto;
+}
+
+.card {
+  border-radius: 10px;
+  border: 1px solid white;
 }
