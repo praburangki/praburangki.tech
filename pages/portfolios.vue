@@ -58,15 +58,6 @@ export default {
         false
       ),
       generateCard(
-        'Arctic Imagination',
-        'News and Catalogs',
-        'An international library collaboration about the disappearing of the ice.',
-        ['node', 'js'],
-        require('~/assets/images/arctic.jpg'),
-        'http://www.arcticimagination.com/',
-        'arctic'
-      ),
-      generateCard(
         "Pond's Men",
         'Trivia Quiz',
         "Trivia Quiz for the FIFA World Cup 2018 to win prizes from Pond's Men",
@@ -76,20 +67,38 @@ export default {
         'ponds'
       ),
       generateCard(
+        'Memotus',
+        'Health Counseling',
+        'Startup based in Sweden where people who have injuries can discuss and ask for help from the experts.',
+        ['node', 'react'],
+        require('~/assets/images/memotus.jpg'),
+        'https://memotus.se/',
+        'memotus'
+      ),
+      generateCard(
         'GDG Bali',
         'Community & Events',
         'Events for the Google Developer Group community in Bali.',
-        ['rails', 'node', 'vue'],
+        ['rails', 'node', 'pwa', 'vue'],
         require('~/assets/images/gdg.jpg'),
         'https://gdgbali.com/',
         'gdg'
+      ),
+      generateCard(
+        'Arctic Imagination',
+        'News and Catalogs',
+        'An international library collaboration about the disappearing of the ice.',
+        ['node', 'js'],
+        require('~/assets/images/arctic.jpg'),
+        'http://www.arcticimagination.com/',
+        'arctic'
       ),
       generateCard(
         'Nujeks',
         'Administration System',
         'Administration System for the Nusantara Jaya Ekspress logistics company.',
         ['rails', 'node', 'vue'],
-        require('~/assets/images/gdg.jpg'),
+        require('~/assets/images/nujeks.jpg'),
         'https://nujeks.com',
         'nujeks'
       ),

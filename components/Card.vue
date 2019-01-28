@@ -13,10 +13,6 @@ export default {
     animated: false,
     icons: { ...iconObj }
   }),
-  mounted() {
-    console.log(this.icons);
-    console.log(this.item.techStack);
-  },
   methods: {
     toggleCard() {
       this.isActive = !this.isActive;
@@ -38,7 +34,7 @@ export default {
         span {{ item.short }}
       .cardContent
         .img-container(:class="{ compact: !item.fullWidth }")
-          img(:src="item.imageSrc")
+          img(:data-srcset="item.imageSrc.srcSet" :src="item.imageSrc.placeholder" class="lazyload")
         .cardDescription
           div.longDesc {{ item.long }}
           br

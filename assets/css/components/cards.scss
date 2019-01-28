@@ -10,6 +10,7 @@ $magloft: #0f6dae;
 $ponds: #46a98e;
 $gdg: #00796b;
 $nujeks: #ef5930;
+$memotus: #e23627;
 
 $portoList: (
   carriage: $carriage,
@@ -17,7 +18,8 @@ $portoList: (
   magloft: $magloft,
   ponds: $ponds,
   gdg: $gdg,
-  nujeks: $nujeks
+  nujeks: $nujeks,
+  memotus: $memotus
 );
 
 .fa-spin-fast {
@@ -194,7 +196,6 @@ $portoList: (
       position: relative;
       width: 52px;
       height: 52px;
-      // background-color: black;
       margin-left: 15px;
       margin-bottom: 15px;
       font-size: 28px;
