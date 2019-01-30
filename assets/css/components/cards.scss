@@ -241,17 +241,6 @@ $portoList: (
     img {
       width: 100%;
     }
-
-    &.compact {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: $light;
-
-      img {
-        width: 70%;
-      }
-    }
   }
 
   &.cardActive {

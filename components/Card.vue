@@ -33,7 +33,7 @@ export default {
         strong {{ item.name }}
         span {{ item.short }}
       .cardContent
-        .img-container(:class="{ compact: !item.fullWidth }")
+        .img-container
           img(:data-srcset="item.imageSrc.srcSet" :src="item.imageSrc.placeholder" class="lazyload")
         .cardDescription
           div.longDesc {{ item.long }}

@@ -1,3 +1,4 @@
+const path = require('path');
 const pkg = require('./package');
 const sharp = require('responsive-loader/sharp');
 
@@ -73,12 +74,14 @@ module.exports = {
           exclude: /(node_modules)/
         });
       }
+
       config.module.rules.find(
         rule =>
           rule.use
             ? rule.use[0].loader === 'url-loader'
             : rule.loader === 'url-loader'
       ).exclude = /\.(jpe?g|png)$/;
+
       config.module.rules.push({
         test: /\.(jpe?g|png)$/i,
         use: [
@@ -96,6 +99,17 @@ module.exports = {
             }
           }
         ]
+      });
+
+      config.module.rules.push({
+        test: /\.md$/,
+        loader: 'frontmatter-markdown-loader',
+        include: path.resolve(__dirname, 'blogPosts'),
+        options: {
+          vue: {
+            root: 'dynamicMarkdown'
+          }
+        }
       });
     }
   }
