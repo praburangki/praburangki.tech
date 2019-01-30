@@ -9,24 +9,20 @@
           h1.is-size-2 I'm Prabu
           h1.is-size-3 A Full-Stack Web Developer
         .socials
-          Github
-          Twitter
-          LinkedIn
-          Gmail
+          div(v-for="social in socials", :key="social.id")
+            a(target="_blank", :href="social.link", rel="noopener noreferrer")
+              Component(:is="social.icon")
 </template>
 
 <script>
-import Twitter from '~/components/Twitter';
-import Github from '~/components/Github';
-import LinkedIn from '~/components/LinkedIn';
-import Gmail from '~/components/Gmail';
+import socials from '~/data/socials';
 
 export default {
-  components: {
-    Twitter,
-    Github,
-    LinkedIn,
-    Gmail
+  data: () => ({
+    socials
+  }),
+  mounted() {
+    console.log(this.socials);
   }
 };
 </script>

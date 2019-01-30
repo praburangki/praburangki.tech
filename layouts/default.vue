@@ -1,7 +1,7 @@
 <template lang="pug">
   div.main
     Navbar(:navIsVisible="navIsVisible" @toggleNavbar="toggleNavbar")
-    main(:class="{ navIsVisible: navIsVisible }")
+    main(:class="this.navVisibleClass")
       nuxt
     footer.has-text-centered
       div
@@ -13,11 +13,13 @@
 
 <script>
 import Navbar from '~/components/Navbar';
+import commonMixin from '~/mixins/commonMixin';
 
 export default {
   components: {
     Navbar
   },
+  mixins: [commonMixin],
   data: () => ({
     navIsVisible: false
   }),
