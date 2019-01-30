@@ -1,8 +1,9 @@
 @import '~bulma/sass/utilities/initial-variables';
 @import '~bulma/sass/utilities/functions';
 
-$black: #3a3939;
-$text: #eaeaea;
+$dark: #3a3939;
+$light: #eaeaea;
+$text: $text-light;
 $red: #d73938;
 $darker-red: rgba(215, 57, 56, 0.7);
 $text-strong: $text;
@@ -18,12 +19,16 @@ html {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
   box-sizing: border-box;
-  background-color: $black;
 }
 
 body {
   font-family: 'Montserrat', sans-serif;
-  background-color: $black;
+  background-color: $dark;
+
+  &.lightTheme {
+    background-color: $light;
+    color: $dark;
+  }
 }
 
 *,

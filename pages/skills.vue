@@ -1,9 +1,6 @@
 <template lang="pug">
   div
-    .is-size-2.mainTitle
-      .isFlex.redLine
-      .isFlex.text.has-text-centered SKILLS
-      .isFlex.redLine
+    PageTitle SKILLS
     section.section
       .container
         .columns.is-centered
@@ -77,10 +74,12 @@
 
 <script>
 import SkillsIcons from '~/components/SkillsIcons';
+import PageTitle from '~/components/PageTitle';
 
 export default {
   components: {
-    SkillsIcons
+    SkillsIcons,
+    PageTitle
   }
 };
 </script>

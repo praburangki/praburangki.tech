@@ -3,12 +3,12 @@
     Navbar(:navIsVisible="navIsVisible" @toggleNavbar="toggleNavbar")
     main(:class="{ navIsVisible: navIsVisible }")
       nuxt
-      footer.has-text-centered
-        div
-          |Made with
-          a(href="https://nuxtjs.org/" target="_blank")  Nuxt
-          |  and
-          a(href="https://bulma.io" target="_blank")  Bulma
+    footer.has-text-centered
+      div
+        |Made with
+        a(href="https://nuxtjs.org/" target="_blank")  Nuxt
+        |  and
+        a(href="https://bulma.io" target="_blank")  Bulma
 </template>
 
 <script>
@@ -40,6 +40,7 @@ footer {
   padding-bottom: 30px;
 }
 main {
+  flex: 1 0 auto;
   transition: transform 0.5s;
   transform: translateZ(0);
   backface-visibility: hidden;

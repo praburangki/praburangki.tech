@@ -1,9 +1,6 @@
 <template lang="pug">
   div
-    .is-size-2.mainTitle
-      .isFlex.redLine
-      .isFlex.text.has-text-centered PORTFOLIOS
-      .isFlex.redLine
+    PageTitle PORTFOLIOS
     section.section
       .container
         .columns.is-centered
@@ -20,6 +17,7 @@
 
 <script>
 import Card from '~/components/Card';
+import PageTitle from '~/components/PageTitle';
 
 const generateCard = (
   name,
@@ -43,7 +41,8 @@ const generateCard = (
 
 export default {
   components: {
-    Card
+    Card,
+    PageTitle
   },
   data: () => ({
     cards: [

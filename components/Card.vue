@@ -38,7 +38,7 @@ export default {
         .cardDescription
           div.longDesc {{ item.long }}
           br
-          a.button
+          a.button(target="_blank" rel="noopener noreferrer" :href="item.link")
             span Visit Site
             span.icon.is-small.iconLink
               svg(xmlns='http://www.w3.org/2000/svg', viewBox='0 0 18 18')

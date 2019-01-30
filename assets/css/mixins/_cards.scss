@@ -16,6 +16,10 @@
 @mixin cardItem($primary, $secondary) {
   .button {
     background-color: $primary;
+
+    &:hover {
+      background-color: $secondary;
+    }
   }
   h2 {
     background-color: $primary;
