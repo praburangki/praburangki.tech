@@ -1,6 +1,9 @@
 <template lang="pug">
   .blogs
-    PageTitle BLOG
+    PageTitle: h1 BLOG
+    section.section
+      .container
+        h2.is-size-4 Latest
 </template>
 
 <script>
@@ -11,7 +14,7 @@ export default {
     PageTitle
   },
   created() {
-    this.toggleTheme('add');
+    // this.toggleTheme('add');
   },
   beforeDestroy() {
     this.toggleTheme('remove');

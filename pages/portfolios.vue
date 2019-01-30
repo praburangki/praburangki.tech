@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    PageTitle PORTFOLIOS
+    PageTitle: h1 PORTFOLIOS
     section.section
       .container
         .columns.is-centered

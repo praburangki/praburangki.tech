@@ -11,6 +11,7 @@ $ponds: #46a98e;
 $gdg: #00796b;
 $nujeks: #ef5930;
 $memotus: #e23627;
+$soundrenaline: #ea202d;
 
 $portoList: (
   carriage: $carriage,
@@ -19,7 +20,8 @@ $portoList: (
   ponds: $ponds,
   gdg: $gdg,
   nujeks: $nujeks,
-  memotus: $memotus
+  memotus: $memotus,
+  soundrenaline: $soundrenaline
 );
 
 .fa-spin-fast {
@@ -65,7 +67,7 @@ $portoList: (
   h2 {
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
-    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.7);
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.95);
     @include trouble(calc(100% - 16px), null, null, 0);
     width: 100%;
     padding: 10px 16px;
@@ -147,7 +149,7 @@ $portoList: (
     line-height: 44px;
     text-align: center;
     color: #fff;
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.7);
+    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.95);
     cursor: pointer;
     z-index: 20;
     transition: all 0.3s;
@@ -228,7 +230,7 @@ $portoList: (
   .img-container {
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
-    box-shadow: 1px -2px 5px rgba(0, 0, 0, 0.7);
+    box-shadow: 1px -2px 5px rgba(0, 0, 0, 0.95);
     overflow: hidden;
     @include trouble(0, null, null, 0);
     width: 100%;
@@ -260,13 +262,13 @@ $portoList: (
       width: 60px;
       height: 60px;
       z-index: 20;
-      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.7);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.95);
     }
     .cardContent {
       border-top-right-radius: 5px;
       border-top-left-radius: 5px;
       padding-top: 5.6em;
-      box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.7);
+      box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.95);
       @media screen and (max-width: 767px) {
         position: relative;
         margin-right: 16px;
@@ -291,7 +293,7 @@ $portoList: (
       padding-left: 25px;
       border-bottom-right-radius: 5px;
       border-bottom-left-radius: 5px;
-      box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.7);
+      box-shadow: 1px 3px 7px rgba(0, 0, 0, 0.95);
       .techStack {
         top: 0;
       }
@@ -303,7 +305,7 @@ $portoList: (
 
   @each $key, $val in $portoList {
     &.#{$key} {
-      @include cardItem($val, darken($val, 15%));
+      @include cardItem($val, darken($val, 10%));
     }
   }
 }

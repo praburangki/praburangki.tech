@@ -1,6 +1,6 @@
 <template lang="pug">
   div
-    PageTitle SKILLS
+    PageTitle: h1 SKILLS
     section.section
       .container
         .columns.is-centered

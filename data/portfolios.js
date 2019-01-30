@@ -48,6 +48,15 @@ export default [
     'memotus'
   ),
   generateCard(
+    'Soundrenaline 2018',
+    'Concert Schedule',
+    'Unofficial website schedule for the Soundrenaline 2018.',
+    ['pwa', 'vue', 'firebase'],
+    require('~/assets/images/portfolios/soundrenaline.jpg'),
+    'https://soundrenaline18.firebaseapp.com/',
+    'soundrenaline'
+  ),
+  generateCard(
     'GDG Bali',
     'Community & Events',
     'Events for the Google Developer Group community in Bali.',
