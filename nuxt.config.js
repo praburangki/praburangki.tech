@@ -3,8 +3,7 @@ const pkg = require('./package');
 const sharp = require('responsive-loader/sharp');
 
 module.exports = {
-  mode: 'spa',
-
+  modern: 'client',
   /*
   ** Headers of the page
   */
