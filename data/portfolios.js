@@ -6,7 +6,7 @@ const generateCard = (
   imageSrc,
   link,
   className,
-  fullWidth = true
+  altText = 'Project Thumbnail'
 ) => ({
   name,
   short,
@@ -15,7 +15,7 @@ const generateCard = (
   imageSrc,
   link,
   className,
-  fullWidth
+  altText
 });
 
 export default [
@@ -26,8 +26,7 @@ export default [
     ['rails', 'js'],
     require('~/assets/images/portfolios/carriage.jpg'),
     'https://trycarriage.com/',
-    'carriage',
-    false
+    'carriage'
   ),
   generateCard(
     "Pond's Men",

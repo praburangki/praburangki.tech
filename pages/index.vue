@@ -3,14 +3,19 @@
     .container
       .sectionWrapper
         div
-          img.avatar(src="~assets/images/pic.jpg")
+          img.avatar(src="~assets/images/pic.jpg", alt="my avatar")
         .has-text-centered
           h1.is-size-3 Hi
           h1.is-size-2 I'm Prabu
           h1.is-size-3 A Full-Stack Web Developer
         .socials
           div(v-for="social in socials", :key="social.id")
-            a(target="_blank", :href="social.link", rel="noopener noreferrer")
+            a(
+              target="_blank",
+              :href="social.link",
+              rel="noopener noreferrer",
+              :aria-label="social.ariaText"
+            )
               Component(:is="social.icon")
 </template>
 

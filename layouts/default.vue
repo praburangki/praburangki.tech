@@ -6,9 +6,9 @@
     footer.has-text-centered
       div
         |Made with
-        a(href="https://nuxtjs.org/" target="_blank")  Nuxt
+        a(href="https://nuxtjs.org/" target="_blank" rel="noreferrer noopener")  Nuxt
         |  and
-        a(href="https://bulma.io" target="_blank")  Bulma
+        a(href="https://bulma.io" target="_blank" rel="noreferrer noopener")  Bulma
 </template>
 
 <script>
@@ -27,6 +27,13 @@ export default {
     toggleNavbar() {
       this.navIsVisible = !this.navIsVisible;
     }
+  },
+  head() {
+    return {
+      htmlAttrs: {
+        lang: 'en'
+      }
+    };
   }
 };
 </script>
@@ -40,6 +47,10 @@ export default {
 footer {
   margin-top: 120px;
   padding-bottom: 30px;
+
+  a {
+    color: #ffef00;
+  }
 }
 main {
   flex: 1 0 auto;
