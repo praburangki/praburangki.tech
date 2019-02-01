@@ -30,12 +30,12 @@ export default {
 </script>
 
 <template lang="pug">
-  div
-    header.topNav(:class="this.navVisibleClass")
+  .navWrapper
+    header.topNav(:class="navVisibleClass")
       a.toggleNav(@click="toggleNavbar")
         |Menu
         span
-    nav.navContainer(:class="this.navVisibleClass")
+    nav.navContainer(:class="navVisibleClass")
       .navList.columns.is-gapless.is-mobile
         nuxt-link.column.navItem(
           v-for="navLink in navLinks"

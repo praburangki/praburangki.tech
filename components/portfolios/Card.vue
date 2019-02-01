@@ -27,14 +27,19 @@ export default {
 
 
 <template lang="pug">
-  .column.is-12-mobile.is-6-tablet.is-4-desktop
-    article.portoCard(:class="{ 'cardActive': isActive, [item.className]: true }")
+  .column.is-12-mobile.is-6-tablet.is-4-desktop.portoCardColumn
+    div.portoCard(:class="{ 'cardActive': isActive, [item.className]: true }")
       h2
         strong {{ item.name }}
         span {{ item.short }}
       .cardContent
         .img-container
-          img(:data-srcset="item.imageSrc.srcSet" :src="item.imageSrc.placeholder" class="lazyload")
+          img(
+            :data-srcset="item.imageSrc.srcSet",
+            :src="item.imageSrc.placeholder",
+            class="lazyload"
+            :alt="item.altText"
+          )
         .cardDescription
           div.longDesc {{ item.long }}
           br
@@ -60,5 +65,5 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@import '~/assets/css/components/cards.scss';
+@import './styles/cards.scss';
 </style>

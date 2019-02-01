@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import Card from '~/components/Card';
+import Card from '~/components/portfolios/Card';
 import PageTitle from '~/components/PageTitle';
 import cards from '~/data/portfolios';
 

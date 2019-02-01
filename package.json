@@ -29,6 +29,7 @@
     "node-sass": "^4.11.0",
     "nodemon": "^1.11.0",
     "nuxt-sass-resources-loader": "^2.0.5",
+    "nuxt-purgecss": "^0.2.1",
     "prettier": "1.14.3",
     "pug": "2.0.3",
     "pug-plain-loader": "^1.0.0",

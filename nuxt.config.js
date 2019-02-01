@@ -4,9 +4,6 @@ const sharp = require('responsive-loader/sharp');
 
 module.exports = {
   modern: 'client',
-  /*
-  ** Headers of the page
-  */
   head: {
     title: 'praburangki',
     meta: [
@@ -22,49 +19,21 @@ module.exports = {
       }
     ]
   },
-
-  /*
-  ** Customize the progress-bar color
-  */
   loading: { color: '#00796b' },
-
-  /*
-  ** Global CSS
-  */
   css: ['~/assets/css/main.scss'],
-  /*
-  ** Plugins to load before mounting the App
-  */
   plugins: [{ src: '~/plugins/lazysizes', ssr: false }],
-
-  /*
-  ** Nuxt.js modules
-  */
-  modules: [],
+  modules: ['nuxt-purgecss'],
   router: {
     scrollBehavior: function(to, from, savedPosition) {
       return false;
     }
   },
-  /*
-  ** Build configuration
-  */
+  purgeCSS: {
+    whitelistPatternsChildren: [/navWrapper$/, /portoCardColumn$/]
+  },
   build: {
-    // postcss: {
-    //   preset: {
-    //     features: {
-    //       customProperties: false
-    //     }
-    //   },
-    //   autoprefixer: {
-    //     grid: true
-    //   }
-    // },
-    /*
-    ** You can extend webpack config here
-    */
+    extractCSS: true,
     extend(config, ctx) {
-      // Run ESLint on save
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
