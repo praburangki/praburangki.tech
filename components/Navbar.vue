@@ -19,9 +19,6 @@ export default {
     }
   },
   methods: {
-    currentRoute(route) {
-      return this.$route.path === route;
-    },
     toggleNavbar() {
       this.$emit('toggleNavbar');
     }
@@ -42,7 +39,6 @@ export default {
           :key="navLink.text"
           @click.native="toggleNavbar"
           :to="navLink.path"
-          :class="{ selected: currentRoute(navLink.path) }"
         )
           |{{ navLink.text }}
           span.navMarker

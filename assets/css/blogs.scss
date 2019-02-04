@@ -1,43 +1,11 @@
-$dark: #3a3939;
-$light: #eaeaea;
-$text-dark: $dark;
-$text-light: $light;
-$text: $text-light;
-
-// body {
-//   background-color: $light;
-//   color: $dark;
-// }
-
-.blogHeader {
-  margin-bottom: 50px;
+/deep/ .blogHeader {
+  margin-bottom: 10px;
 }
 
-/deep/ .blogsCard {
-  background-color: $light;
-  color: $dark;
-  border-radius: 2px;
-  box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
-  padding: 0 1rem 1rem 1rem;
+/deep/ section.tab {
+  margin-top: 60px;
+}
 
-  .thumbnail {
-    position: relative;
-    width: 80%;
-    top: -20px;
-    overflow: hidden;
-    margin: 0 auto;
-    height: 180px;
-    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75);
-    background-size: cover;
-    background-position: center;
-
-    img {
-      position: absolute;
-      width: 100%;
-      left: 50%;
-      top: 50%;
-      height: auto;
-      transform: translate(-50%, -50%);
-    }
-  }
+.blogListContainer {
+  margin-top: 50px;
 }

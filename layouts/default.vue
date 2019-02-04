@@ -31,7 +31,7 @@ export default {
   head() {
     return {
       htmlAttrs: {
-        lang: 'en'
+        lang: 'id'
       }
     };
   }

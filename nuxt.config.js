@@ -3,7 +3,6 @@ const pkg = require('./package');
 const sharp = require('responsive-loader/sharp');
 
 module.exports = {
-  modern: 'client',
   head: {
     title: 'praburangki',
     meta: [
