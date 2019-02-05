@@ -25,10 +25,7 @@ import socials from '~/data/socials';
 export default {
   data: () => ({
     socials
-  }),
-  mounted() {
-    console.log(this.socials);
-  }
+  })
 };
 </script>
 

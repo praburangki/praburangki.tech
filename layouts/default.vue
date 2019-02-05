@@ -53,7 +53,7 @@ footer {
   }
 }
 main {
-  flex: 1 0 auto;
+  flex: 1 1 0;
   transition: transform 0.5s;
   transform: translateZ(0);
   backface-visibility: hidden;
