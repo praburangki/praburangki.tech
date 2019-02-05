@@ -1,14 +1,18 @@
 const path = require('path');
-const pkg = require('./package');
+const fs = require('fs');
 const sharp = require('responsive-loader/sharp');
 
-module.exports = {
+const postsList = fs.readdirSync('./blogPosts/posts').map(file => {
+  return path.basename(file, '.md');
+});
+
+export default {
   head: {
     title: 'praburangki',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: pkg.description }
+      { hid: 'description', name: 'description', content: 'description' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
@@ -79,5 +83,10 @@ module.exports = {
         }
       });
     }
+  },
+  generate: {
+    fallback: '404.html',
+    subFolders: false,
+    routes: postsList.map(post => `/posts/${post}`)
   }
 };

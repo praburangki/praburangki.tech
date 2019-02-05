@@ -1,16 +1,4 @@
-const postLists = [];
-
-const importAll = (resolve, lang) => {
-  resolve.keys().forEach(key => {
-    const [, name] = key.match(/\/(.+)\.md$/);
-    postLists.push({
-      slug: name,
-      ...resolve(key)
-    });
-  });
-};
-
-importAll(require.context('~/blogPosts/posts', true, /\.md$/));
+import postLists from '~/lib/blogPosts';
 
 export const state = () => ({
   posts: postLists.map(({ slug, attributes, vue }) => ({
