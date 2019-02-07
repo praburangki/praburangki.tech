@@ -3,7 +3,7 @@
     Navbar(:navIsVisible="navIsVisible" @toggleNavbar="toggleNavbar")
     main(:class="this.navVisibleClass")
       nuxt
-    footer.has-text-centered
+    footer.has-text-centered(:class="{ navIsVisible: navIsVisible }")
       div
         |Made with
         a(href="https://nuxtjs.org/" target="_blank" rel="noreferrer noopener")  Nuxt
@@ -45,11 +45,14 @@ export default {
   min-height: 100vh;
 }
 footer {
-  margin-top: 120px;
   padding-bottom: 30px;
 
   a {
     color: #ffef00;
+  }
+
+  &.navIsVisible {
+    margin-top: 170px;
   }
 }
 main {
