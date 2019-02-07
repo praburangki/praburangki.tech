@@ -28,9 +28,29 @@ body {
   font-family: 'Montserrat', sans-serif;
   background-color: $dark;
 
-  &.lightTheme {
+  transition: color 200ms ease-out 0ms, background 100ms ease-out;
+
+  &.light {
     background-color: $light;
     color: $dark;
+
+    .toggleNav {
+      span,
+      span::before,
+      span::after {
+        background-color: #000 !important;
+      }
+    }
+
+    .navIsVisible {
+      span {
+        background-color: rgba(#fff, 0) !important;
+      }
+    }
+
+    footer a {
+      color: $primary !important;
+    }
   }
 }
 
