@@ -10,7 +10,7 @@ Misalnya tiap project terdapat [jquery](https://www.google.com), atau jika kamu 
 
 Dengan bertambahnya project-project tersebut tentu saja kamu akan semakin bingung di mana kamu letakkan folder-folder tersebut di komputermu. Maka sudah saatnya kamu mencoba [**JSUI**](https://www.google.com).
 
-<post-img />
+<post-img name="coba.png" caption="coba dulu ajahhhh" />
 
 #### JSUI
 

@@ -1,11 +1,13 @@
 <script>
 import DynamicMarkdown from '~/components/blogs/DynamicMarkdown';
 import ToggleTheme from '~/components/blogs/ToggleTheme';
+import PostImg from '~/components/blogs/PostImg';
 
 export default {
   components: {
     DynamicMarkdown,
-    ToggleTheme
+    ToggleTheme,
+    PostImg
   },
   data: () => ({
     theme: null
@@ -56,14 +58,7 @@ export default {
         .section-inner.section-layout
           header: h1.has-text-centered {{ post.title }}
         .section-inner.section-fullWidth
-          figure
-            .image-holder
-              .placeholder
-              img(
-                :data-srcset="postImg.srcSet",
-                :src="postImg.placeholder",
-                class="lazyload"
-              )
+          PostImg(cover)
         .section-inner.section-layout
           main
             DynamicMarkdown(
@@ -95,25 +90,6 @@ section {
 
   .section-fullWidth {
     width: 100%;
-  }
-
-  figure {
-    margin-top: 44px;
-    margin-bottom: 80px;
-    .image-holder {
-      position: relative;
-      .placeholder {
-        padding-bottom: 56.3%;
-      }
-
-      img {
-        position: absolute;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-      }
-    }
   }
 
   article {
