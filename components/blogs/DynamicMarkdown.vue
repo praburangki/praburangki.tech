@@ -1,5 +1,10 @@
 <script>
+import PostImg from '~/components/blogs/PostImg';
+
 export default {
+  components: {
+    PostImg
+  },
   props: {
     renderFunc: {
       type: String,
@@ -22,3 +27,7 @@ export default {
   }
 };
 </script>
+
+<style lang="scss" scoped>
+@import '~/assets/css/components/blogPost.scss';
+</style>
