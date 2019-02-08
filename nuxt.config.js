@@ -59,9 +59,9 @@ export default {
           {
             loader: 'responsive-loader',
             options: {
-              min: 300,
-              max: 2048,
-              steps: 4,
+              min: 400,
+              max: 2000,
+              steps: 3,
               silent: false,
               placeholder: true,
               placeholderSize: 16,
