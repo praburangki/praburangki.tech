@@ -65,7 +65,8 @@ export default {
     .section-content
       article
         .section-inner.section-layout
-          header: h1.has-text-centered {{ post.title }}
+          header: h1 {{ post.title }}
+          .published-at {{ post.publishedAt}}
         .section-inner.section-fullWidth
           PostImg(cover)
         .section-inner.section-layout
@@ -101,6 +102,10 @@ section {
     width: 100%;
   }
 
+  .published-at {
+    margin-top: 20px;
+  }
+
   article {
     header h1 {
       font-weight: 700;
@@ -112,8 +117,6 @@ section {
       @media (max-width: 767px) {
         padding-top: 5px;
         font-size: 34px;
-        line-height: 1.04;
-        letter-spacing: 0;
       }
     }
   }

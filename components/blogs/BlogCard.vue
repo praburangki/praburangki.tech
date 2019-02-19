@@ -2,8 +2,9 @@
   .column.is-12-mobile.is-6-tablet
     nuxt-link(:to="`/posts/${slug}`").blogsCard
       .thumbnail(style="background-image: url('https://cdn2.hubspot.net/hubfs/322787/Mychefcom/images/BLOG/Header-Blog/photo-culinaire-pexels.jpg')")
-      .description
-        .blogTitle.is-size-5.has-text-centered {{ title }}
+      .description.has-text-centered
+        .is-size-5: strong {{ title }}
+        p {{ publishedAt }}
 </template>
 
 <script>
@@ -16,6 +17,10 @@ export default {
     slug: {
       type: String,
       default: ''
+    },
+    publishedAt: {
+      type: String,
+      default: ''
     }
   }
 };
@@ -23,6 +28,7 @@ export default {
 
 
 <style lang="scss" scoped>
+@import '~/assets/css/mixins/_media.scss';
 .column {
   margin-bottom: 70px;
 }
@@ -40,7 +46,7 @@ export default {
 
   .thumbnail {
     position: relative;
-    width: 85%;
+    width: 100%;
     top: -20px;
     overflow: hidden;
     margin: 0 auto;
@@ -48,6 +54,10 @@ export default {
     box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75);
     background-size: cover;
     background-position: center;
+
+    @include media-min(767px) {
+      width: 85%;
+    }
 
     img {
       position: absolute;
@@ -60,11 +70,17 @@ export default {
   }
 
   .description {
-    margin: 20px 0;
+    margin-top: 40px;
+    margin-bottom: 40px;
     flex: 1 0 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
+
+    p {
+      margin-top: 20px;
+    }
   }
 }
 </style>

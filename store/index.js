@@ -1,14 +1,11 @@
-import postLists from '~/lib/blogPosts';
+import blogPosts from '~/lib/blogPosts';
 
 export const state = () => ({
-  posts: postLists.map(({ slug, attributes, vue }) => ({
-    slug: slug,
-    title: attributes.title,
-    renderFunc: vue.render,
-    staticRenderFuncs: vue.staticRenderFns
-  }))
+  posts: blogPosts.items,
+  postAttributes: blogPosts.attributes
 });
 
 export const getters = {
-  getPost: state => slug => state.posts.find(post => post.slug === slug)
+  getPost: state => slug => state.posts.find(post => post.slug === slug),
+  latestPosts: state => state.postAttributes.slice(0, 4)
 };

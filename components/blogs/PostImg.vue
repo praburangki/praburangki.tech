@@ -18,7 +18,7 @@ export default {
     postImg() {
       const slugUrl = this.$route.params.slug;
       const imgSrc = this.cover
-        ? require(`~/blogPosts/images/${slugUrl}.jpg`)
+        ? require(`~/blogPosts/images/${slugUrl}/cover.jpg`)
         : require(`~/blogPosts/images/${slugUrl}/${this.name}`);
       const paddingBottom = (imgSrc.height / imgSrc.width) * 100;
 

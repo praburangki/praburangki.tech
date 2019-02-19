@@ -1,22 +1,25 @@
 <template lang="pug">
   section.tab
     .columns.is-multiline.is-variable.is-8.blogListContainer
-      template(v-for="article in articles")
-        BlogCard(:title="article.title" :slug="article.slug")
+      template(v-for="post in latestPosts")
+        BlogCard(
+          :title="post.title",
+          :slug="post.slug",
+          :publishedAt="post.publishedAt"
+        )
 </template>
 
 <script>
 import BlogCard from '~/components/blogs/BlogCard';
-import articleList from '~/blogPosts/articles.md';
+
+import { mapGetters } from 'vuex';
 
 export default {
   components: {
     BlogCard
   },
   computed: {
-    articles() {
-      return articleList.attributes;
-    }
+    ...mapGetters(['latestPosts'])
   }
 };
 </script>

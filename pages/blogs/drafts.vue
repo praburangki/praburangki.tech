@@ -4,7 +4,11 @@
       h2.is-size-3.blogHeader Ideas & Drafts
       .columns.is-centered: .column.is-5
         p This is a list of ideas or drafts that I would love to write in future posts. You can track the progress, vote or suggest something that I should write by creating an issue.
-        a.button.is-primary
+        a.button.is-primary(
+          href="https://github.com/praburangki/praburangki.tech/issues",
+          target="_blank",
+          rel="noopener noreferrer"
+        )
           span.icon.is-medium
             Github
           span GitHub
