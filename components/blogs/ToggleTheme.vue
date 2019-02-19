@@ -1,5 +1,7 @@
 <template lang="pug">
   .toggle-row
+    nuxt-link(to="/blogs")
+      .button.is-primary Back
     .toggle(@click="clickToggle", :class="{ checked: checked }")
       .toggle-track
         .track-dir.left
@@ -48,21 +50,17 @@ export default {
 <style lang="scss" scoped>
 .toggle-row {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+  align-items: center;
   margin: 10px auto;
   width: 90%;
 
   .toggle {
-    /* touch-action: pan-x;
-    display: inline-block; */
     position: relative;
     right: 5px;
     cursor: pointer;
     background-color: transparent;
-    /* border: 0;
-    padding: 0; */
     user-select: none;
-    /* -webkit-tap-highlight-color: transparent; */
 
     &.checked {
       .track-thumb {
@@ -86,7 +84,6 @@ export default {
         margin-top: auto;
         margin-bottom: auto;
         line-height: 0;
-        /* opacity: 0; */
         transition: opacity 0.25s ease;
 
         &.left {

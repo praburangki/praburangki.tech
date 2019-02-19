@@ -36,6 +36,7 @@ export default {
         :data-srcset="postImg.srcSet",
         :src="postImg.placeholder",
         class="lazyload"
+        :class="{ 'postImg-image': !cover }"
       )
     figcaption(v-if="!cover") {{ caption }}
 </template>

@@ -1,4 +1,9 @@
 <script>
+let mediumZoom = null;
+if (process.client) {
+  mediumZoom = require('medium-zoom').default;
+}
+
 import DynamicMarkdown from '~/components/blogs/DynamicMarkdown';
 import ToggleTheme from '~/components/blogs/ToggleTheme';
 import PostImg from '~/components/blogs/PostImg';
@@ -29,6 +34,10 @@ export default {
       document.querySelector('body').classList.add('light');
       this.theme = 'light';
     }
+
+    mediumZoom('.postImg-image', {
+      background: '#DFE0E0'
+    });
   },
   beforeDestroy() {
     document.querySelector('body').classList.remove('light');

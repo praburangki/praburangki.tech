@@ -60,6 +60,7 @@ export default {
   }
 
   .description {
+    margin: 20px 0;
     flex: 1 0 0;
     display: flex;
     justify-content: center;
