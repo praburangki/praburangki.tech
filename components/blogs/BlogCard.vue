@@ -1,7 +1,7 @@
 <template lang="pug">
   .column.is-12-mobile.is-6-tablet
     nuxt-link(:to="`/posts/${slug}`").blogsCard
-      .thumbnail(style="background-image: url('https://cdn2.hubspot.net/hubfs/322787/Mychefcom/images/BLOG/Header-Blog/photo-culinaire-pexels.jpg')")
+      .thumbnail(:style="{'background-image': `url('${coverImg}')`}")
       .description.has-text-centered
         .is-size-5: strong {{ title }}
         p {{ publishedAt }}
@@ -21,6 +21,13 @@ export default {
     publishedAt: {
       type: String,
       default: ''
+    }
+  },
+  computed: {
+    coverImg() {
+      const coverImg = require(`~/blogPosts/images/${this.slug}/cover.jpg`);
+
+      return coverImg;
     }
   }
 };
