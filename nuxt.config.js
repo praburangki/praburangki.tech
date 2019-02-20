@@ -14,18 +14,17 @@ export default {
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
       { hid: 'description', name: 'description', content: 'description' }
     ],
-    link: [
-      { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
-      {
-        rel: 'stylesheet',
-        href: 'https://fonts.googleapis.com/css?family=Montserrat'
-      }
-    ]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },
   loading: { color: '#00796b' },
   css: ['~/assets/css/main.scss'],
   plugins: [{ src: '~/plugins/lazysizes', ssr: false }],
-  modules: ['nuxt-purgecss'],
+  modules: ['nuxt-purgecss', 'nuxt-webfontloader'],
+  webfontloader: {
+    google: {
+      families: ['Montserrat']
+    }
+  },
   router: {
     scrollBehavior: function(to, from, savedPosition) {
       return false;
