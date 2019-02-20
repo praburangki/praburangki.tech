@@ -6,13 +6,15 @@ const postsList = fs.readdirSync('./blogPosts/posts').map(file => {
   return path.basename(file, '.md');
 });
 
+const metatags = require('./lib/metaTags');
+
 export default {
   head: {
     title: 'praburangki',
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      { hid: 'description', name: 'description', content: 'description' }
+      ...metatags
     ],
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
   },

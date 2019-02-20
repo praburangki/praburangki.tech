@@ -14,6 +14,7 @@
 <script>
 import Navbar from '~/components/Navbar';
 import commonMixin from '~/mixins/commonMixin';
+import profileImg from '~/assets/images/pic.jpg';
 
 export default {
   components: {
@@ -32,7 +33,11 @@ export default {
     return {
       htmlAttrs: {
         lang: 'id'
-      }
+      },
+      meta: [
+        { hid: 'og:image', name: 'og:image', content: profileImg.src },
+        { hid: 'twitter:image', name: 'twitter:image', content: profileImg.src }
+      ]
     };
   }
 };
