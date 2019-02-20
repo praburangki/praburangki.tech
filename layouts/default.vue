@@ -35,8 +35,12 @@ export default {
         lang: 'id'
       },
       meta: [
-        { hid: 'og:image', name: 'og:image', content: profileImg.src },
-        { hid: 'twitter:image', name: 'twitter:image', content: profileImg.src }
+        { hid: 'og:image', property: 'og:image', content: profileImg.src },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: profileImg.src
+        }
       ]
     };
   }
