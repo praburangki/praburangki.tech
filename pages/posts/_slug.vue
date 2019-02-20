@@ -9,6 +9,11 @@ import ToggleTheme from '~/components/blogs/ToggleTheme';
 import PostImg from '~/components/blogs/PostImg';
 
 export default {
+  asyncData({ store, params }) {
+    return {
+      post: store.getters.getPost(params.slug)
+    };
+  },
   components: {
     DynamicMarkdown,
     ToggleTheme,
@@ -18,9 +23,6 @@ export default {
     theme: null
   }),
   computed: {
-    post() {
-      return this.$store.getters.getPost(this.$route.params.slug);
-    },
     postImg() {
       return require(`~/blogPosts/images/${this.post.slug}.jpg`);
     }

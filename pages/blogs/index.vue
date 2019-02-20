@@ -12,14 +12,14 @@
 <script>
 import BlogCard from '~/components/blogs/BlogCard';
 
-import { mapGetters } from 'vuex';
-
 export default {
+  asyncData({ store }) {
+    return {
+      latestPosts: store.getters.latestPosts
+    };
+  },
   components: {
     BlogCard
-  },
-  computed: {
-    ...mapGetters(['latestPosts'])
   }
 };
 </script>
