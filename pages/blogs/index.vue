@@ -12,10 +12,18 @@
 <script>
 import BlogCard from '~/components/blogs/BlogCard';
 
+import { generateMeta } from '~/lib/metaTags';
+
 export default {
   asyncData({ store }) {
     return {
       latestPosts: store.getters.latestPosts
+    };
+  },
+  head() {
+    return {
+      title: 'Latest Blog Posts',
+      meta: [generateMeta('title', 'Latest Blog Posts')]
     };
   },
   components: {

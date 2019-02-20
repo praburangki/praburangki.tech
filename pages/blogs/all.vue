@@ -7,11 +7,18 @@
 
 <script>
 import BlogCard from '~/components/blogs/BlogCard';
+import { generateMeta } from '~/lib/metaTags';
 
 export default {
   asyncData({ store }) {
     return {
       allPosts: store.state.postAttributes
+    };
+  },
+  head() {
+    return {
+      title: 'All Blog Posts',
+      meta: [generateMeta('title', 'All Blog Posts')]
     };
   },
   components: {

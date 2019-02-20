@@ -31,7 +31,15 @@ import SkillsIcons from '~/components/SkillsIcons';
 import PageTitle from '~/components/PageTitle';
 import GdgIcon from '~/components/Icons/GdgIcon';
 
+import { generateMeta } from '~/lib/metaTags';
+
 export default {
+  head() {
+    return {
+      title: 'Skills',
+      meta: [generateMeta('title', 'Skills')]
+    };
+  },
   components: {
     SkillsIcons,
     PageTitle,

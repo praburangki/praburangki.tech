@@ -8,10 +8,44 @@ import DynamicMarkdown from '~/components/blogs/DynamicMarkdown';
 import ToggleTheme from '~/components/blogs/ToggleTheme';
 import PostImg from '~/components/blogs/PostImg';
 
+import { generateMeta } from '~/lib/metaTags';
+
 export default {
   asyncData({ store, params }) {
     return {
       post: store.getters.getPost(params.slug)
+    };
+  },
+  head() {
+    const { slug, title, description, publishedTime } = this.post;
+    const coverImg = require(`~/blogPosts/images/${slug}/cover.jpg`);
+    const coverImgSrc = coverImg.images.reverse()[0].path; // retrieve the highest resolution
+    const baseUrl = 'https://praburangki.tech';
+    const imgPathSrc = baseUrl + coverImgSrc;
+    const articleUrl = `${baseUrl}/posts/${slug}`;
+    const publishedAt = new Date(publishedTime);
+
+    return {
+      title,
+      meta: [
+        generateMeta('title', title),
+        generateMeta('description', description),
+        generateMeta('og:title', title, 'property'),
+        generateMeta('og:url', articleUrl, 'property'),
+        generateMeta('og:description', description, 'property'),
+        generateMeta('og:image', imgPathSrc, 'property'),
+        generateMeta('og:type', 'article', 'property'),
+        generateMeta('og:site_name', 'praburangki.tech', 'property'),
+        generateMeta('twitter:title', title),
+        generateMeta('twitter:description', description),
+        generateMeta('twitter:image', imgPathSrc),
+        generateMeta('twitter:creator', '@praburangki'),
+        generateMeta('twitter:site', '@praburangki'),
+        generateMeta('author', 'Prabu Rangki', 'property'),
+        generateMeta('article:publisher', baseUrl, 'property'),
+        generateMeta('article:author', baseUrl, 'property'),
+        generateMeta('article:published_time', publishedAt, 'property')
+      ]
     };
   },
   components: {
@@ -22,11 +56,6 @@ export default {
   data: () => ({
     theme: null
   }),
-  computed: {
-    postImg() {
-      return require(`~/blogPosts/images/${this.post.slug}.jpg`);
-    }
-  },
   created() {
     this.theme = 'dark';
   },

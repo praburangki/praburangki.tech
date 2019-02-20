@@ -16,7 +16,15 @@
 
 <script>
 import Github from '~/components/Icons/Socials/Github';
+import { generateMeta } from '~/lib/metaTags';
+
 export default {
+  head() {
+    return {
+      title: 'Draft Blog Posts',
+      meta: [generateMeta('title', 'Draft Blog Posts')]
+    };
+  },
   components: {
     Github
   }

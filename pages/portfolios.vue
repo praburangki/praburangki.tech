@@ -20,7 +20,15 @@ import Card from '~/components/portfolios/Card';
 import PageTitle from '~/components/PageTitle';
 import cards from '~/data/portfolios';
 
+import { generateMeta } from '~/lib/metaTags';
+
 export default {
+  head() {
+    return {
+      title: 'Portfolios',
+      meta: [generateMeta('title', 'Portfolios')]
+    };
+  },
   components: {
     Card,
     PageTitle

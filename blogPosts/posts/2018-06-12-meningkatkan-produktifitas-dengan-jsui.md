@@ -1,6 +1,7 @@
 ---
 title: Meningkatkan Produktifitas dengan JSUI
 publishedAt: 2018-06-12 00:00
+description: Seiringan dengan pesatnya perkembangan dunia JavaScript, tentu kamu pasti ingin atau sudah pernah mencicipi berbagai library maupun framework. Mungkin kamu punya beberapa project yang di dalamnya...
 ---
 
 ### Pendahuluan

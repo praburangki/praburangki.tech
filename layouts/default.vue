@@ -16,6 +16,8 @@ import Navbar from '~/components/Navbar';
 import commonMixin from '~/mixins/commonMixin';
 import profileImg from '~/assets/images/pic.jpg';
 
+import { generateMeta } from '~/lib/metaTags';
+
 const metaImgPath = `https://praburangki.tech${profileImg}`;
 
 export default {
@@ -37,12 +39,8 @@ export default {
         lang: 'id'
       },
       meta: [
-        { hid: 'og:image', property: 'og:image', content: metaImgPath },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: metaImgPath
-        }
+        generateMeta('og:image', metaImgPath, 'property'),
+        generateMeta('twitter:image', metaImgPath)
       ]
     };
   }
