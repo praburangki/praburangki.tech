@@ -21,7 +21,10 @@ export default {
   },
   loading: { color: '#00796b' },
   css: ['~/assets/css/main.scss'],
-  plugins: [{ src: '~/plugins/lazysizes', ssr: false }],
+  plugins: [
+    { src: '~/plugins/lazysizes', ssr: false },
+    '~/plugins/socialSharing.js'
+  ],
   modules: ['nuxt-purgecss', 'nuxt-webfontloader'],
   webfontloader: {
     google: {
