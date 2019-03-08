@@ -7,7 +7,7 @@
         .has-text-centered
           h1.is-size-3 Hi
           h1.is-size-2 I'm Prabu
-          h1.is-size-3 A Full-Stack Web Developer
+          h1.is-size-3 A Software Engineer
         .socials
           div(v-for="social in socials", :key="social.id")
             a(
