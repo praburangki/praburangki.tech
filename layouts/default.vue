@@ -1,14 +1,14 @@
 <template lang="pug">
-  div.main
+  .flex.flex-col.min-h-screen
     Navbar(:navIsVisible="navIsVisible" @toggleNavbar="toggleNavbar")
     main(:class="this.navVisibleClass")
       nuxt
-    footer.has-text-centered(:class="{ navIsVisible: navIsVisible }")
+    footer.text-center(:class="{ navIsVisible: navIsVisible }")
       div
         |Made with
         a(href="https://nuxtjs.org/" target="_blank" rel="noreferrer noopener")  Nuxt
         |  and
-        a(href="https://bulma.io" target="_blank" rel="noreferrer noopener")  Bulma
+        a(href="https://tailwindcss.com" target="_blank" rel="noreferrer noopener")  Tailwind
 </template>
 
 <script>
@@ -22,37 +22,41 @@ const metaImgPath = `https://praburangki.tech${profileImg}`;
 
 export default {
   components: {
-    Navbar
+    Navbar,
   },
   mixins: [commonMixin],
   data: () => ({
-    navIsVisible: false
+    navIsVisible: false,
   }),
   methods: {
     toggleNavbar() {
       this.navIsVisible = !this.navIsVisible;
-    }
+    },
   },
   head() {
     return {
       htmlAttrs: {
-        lang: 'id'
+        lang: 'id',
       },
       meta: [
         generateMeta('og:image', metaImgPath, 'property'),
-        generateMeta('twitter:image', metaImgPath)
-      ]
+        generateMeta('twitter:image', metaImgPath),
+      ],
     };
-  }
+  },
 };
 </script>
 
-<style lang="scss" scoped>
-.main {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
+<style lang="scss">
+html {
+  background-color: config('colors.dark');
+  font-family: config('fonts.raleway');
 }
+
+body {
+  color: config('colors.light');
+}
+
 footer {
   padding-bottom: 30px;
 
@@ -64,6 +68,7 @@ footer {
     margin-top: 170px;
   }
 }
+
 main {
   flex: 1 1 0;
   transition: transform 0.5s;
