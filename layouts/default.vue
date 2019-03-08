@@ -48,15 +48,6 @@ export default {
 </script>
 
 <style lang="scss">
-html {
-  background-color: config('colors.dark');
-  font-family: config('fonts.raleway');
-}
-
-body {
-  color: config('colors.light');
-}
-
 footer {
   padding-bottom: 30px;
 

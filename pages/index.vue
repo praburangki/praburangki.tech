@@ -1,13 +1,13 @@
 <template lang="pug">
   section.section
     .container
-      .sectionWrapper
+      .flex.flex-col.items-center
         div
           img.avatar(src="~assets/images/pic.jpg", alt="my avatar")
-        .has-text-centered
-          h1.is-size-3 Hi
-          h1.is-size-2 I'm Prabu
-          h1.is-size-3 A Software Engineer
+        .text-center
+          h1.text-3xl.tracking-wide Hi
+          h1.text-4xl.tracking-wide I'm Prabu
+          h1.text-3xl.tracking-wide A Software Engineer
         .socials
           div(v-for="social in socials", :key="social.id")
             a(
@@ -24,8 +24,8 @@ import socials from '~/data/socials';
 
 export default {
   data: () => ({
-    socials
-  })
+    socials,
+  }),
 };
 </script>
 

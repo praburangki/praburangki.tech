@@ -24,7 +24,7 @@ export default {
   modules: ['nuxt-purgecss', 'nuxt-webfontloader'],
   webfontloader: {
     google: {
-      families: ['Raleway'],
+      families: ['Raleway:300,400,700'],
     },
   },
   router: {

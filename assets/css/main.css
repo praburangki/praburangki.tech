@@ -1,6 +1,43 @@
 @import '_tailwind';
 
+html {
+  background-color: config('colors.dark');
+  font-family: config('fonts.raleway');
+}
+
+body {
+  color: config('colors.light');
+  @apply .leading-normal;
+  @apply .tracking-normal;
+}
+
+h1 {
+  @apply .font-normal;
+}
+
 a {
   @apply .no-underline;
   @apply .cursor-pointer;
+}
+
+hr {
+  width: 60px;
+  height: 6px;
+  border-radius: 4px;
+  border-style: none;
+  background-color: config('colors.darkerRed');
+  margin: 1.5rem auto;
+}
+
+.section {
+  padding: 3rem 1.5rem;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
 }

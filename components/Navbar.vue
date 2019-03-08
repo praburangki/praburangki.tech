@@ -7,22 +7,22 @@ export default {
   props: {
     navIsVisible: {
       type: Boolean,
-      default: false
-    }
+      default: false,
+    },
   },
   data: () => ({
-    navLinks
+    navLinks,
   }),
   computed: {
     navVisibleClass() {
       return { navIsVisible: this.navIsVisible };
-    }
+    },
   },
   methods: {
     toggleNavbar() {
       this.$emit('toggleNavbar');
-    }
-  }
+    },
+  },
 };
 </script>
 
@@ -33,8 +33,8 @@ export default {
         |Menu
         span
     nav.navContainer(:class="navVisibleClass")
-      .navList.columns.is-gapless.is-mobile
-        nuxt-link.column.navItem(
+      .navList.flex
+        nuxt-link.flex-1.navItem(
           v-for="navLink in navLinks"
           :key="navLink.text"
           @click.native="toggleNavbar"

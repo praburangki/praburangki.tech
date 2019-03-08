@@ -1,7 +1,7 @@
 <template lang="pug">
-  .skillsIcons.columns.is-mobile.is-multiline
-    .column.has-text-centered.is-2-tablet.is-6-mobile(v-for="name in names")
-      .iconContainer
+  .mb-24.flex.flex-wrap
+    .md__w-1--6.text-center.w-1--2.mt-6(v-for="name in names")
+      .iconContainer.flex.flex-col.items-center.h-full
         div
         .iconSvg
           component(:is="name.component")
@@ -13,22 +13,15 @@ import iconComponents from '~/components/Icons';
 
 export default {
   data: () => ({
-    names: [...iconComponents]
-  })
+    names: [...iconComponents],
+  }),
 };
 </script>
 
 
 <style lang="scss" scoped>
-.skillsIcons {
-  margin-bottom: 50px;
-}
 .iconContainer {
-  margin-top: 30px;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+  /* margin-top: 30px; */
 
   > div:first-child {
     visibility: hidden;

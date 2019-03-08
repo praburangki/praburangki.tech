@@ -1,3 +1,5 @@
+
+
 @import '~bulma/sass/utilities/initial-variables';
 @import '~bulma/sass/utilities/functions';
 
@@ -69,39 +71,12 @@ a {
   }
 }
 
-.page-enter-active,
-.page-leave-active {
-  transition: opacity 0.5s;
-}
-.page-enter,
-.page-leave-active {
-  opacity: 0;
-}
-
 .sectionWrapper {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.mainTitle {
-  width: 100%;
-  display: flex;
-  align-items: center;
-
-  .redLine {
-    height: 5px;
-    background-color: $darker-red;
-  }
-
-  .text {
-    padding: 0 20px;
-  }
-
-  .isFlex {
-    flex: 1 0 0;
-  }
-}
 
 .long-par {
   max-width: 630px;

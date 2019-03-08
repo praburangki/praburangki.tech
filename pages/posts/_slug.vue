@@ -1,14 +1,13 @@
 <script>
-let mediumZoom = null;
-if (process.client) {
-  mediumZoom = require('medium-zoom').default;
-}
-
 import DynamicMarkdown from '~/components/blogs/DynamicMarkdown';
 import ToggleTheme from '~/components/blogs/ToggleTheme';
 import PostImg from '~/components/blogs/PostImg';
 
 import { generateMeta } from '~/lib/metaTags';
+let mediumZoom = null;
+if (process.client) {
+  mediumZoom = require('medium-zoom').default;
+}
 
 export default {
   asyncData({ store, params }) {
@@ -23,12 +22,12 @@ export default {
 
     return {
       post,
-      imgPathSrc: baseUrl + coverImgSrc,
-      articleUrl: `${baseUrl}/posts/${slug}`
+      imgPathSrc,
+      articleUrl,
     };
   },
   head() {
-    const { slug, title, description, publishedTime } = this.post;
+    const { title, description, publishedTime } = this.post;
     const publishedAt = new Date(publishedTime);
 
     return {
@@ -50,17 +49,17 @@ export default {
         generateMeta('author', 'Prabu Rangki', 'property'),
         generateMeta('article:publisher', this.baseUrl, 'property'),
         generateMeta('article:author', this.baseUrl, 'property'),
-        generateMeta('article:published_time', publishedAt, 'property')
-      ]
+        generateMeta('article:published_time', publishedAt, 'property'),
+      ],
     };
   },
   components: {
     DynamicMarkdown,
     ToggleTheme,
-    PostImg
+    PostImg,
   },
   data: () => ({
-    theme: null
+    theme: null,
   }),
   created() {
     this.theme = 'dark';
@@ -73,7 +72,7 @@ export default {
     }
 
     mediumZoom('.postImg-image', {
-      background: '#DFE0E0'
+      background: '#DFE0E0',
     });
   },
   beforeDestroy() {
@@ -91,8 +90,8 @@ export default {
         bodyClass.add('light');
         localStorage.setItem('theme', 'light');
       }
-    }
-  }
+    },
+  },
 };
 </script>
 
