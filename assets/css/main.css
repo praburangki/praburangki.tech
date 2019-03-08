@@ -1,0 +1,6 @@
+@import '_tailwind';
+
+a {
+  @apply .no-underline;
+  @apply .cursor-pointer;
+}
