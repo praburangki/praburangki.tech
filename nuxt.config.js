@@ -1,3 +1,4 @@
+import metatags from './lib/metaTags';
 const path = require('path');
 const fs = require('fs');
 const sharp = require('responsive-loader/sharp');
@@ -6,8 +7,6 @@ const postsList = fs.readdirSync('./blogPosts/posts').map(file => {
   return path.basename(file, '.md');
 });
 
-import metatags from './lib/metaTags';
-
 export default {
   head: {
     title: 'Personal Site',
@@ -15,29 +14,26 @@ export default {
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
-      ...metatags
+      ...metatags,
     ],
-    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
+    link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   loading: { color: '#00796b' },
-  css: ['~/assets/css/main.scss'],
-  plugins: [
-    { src: '~/plugins/lazysizes', ssr: false },
-    '~/plugins/socialSharing.js'
-  ],
+  css: ['~/assets/css/main.css'],
+  plugins: [{ src: '~/plugins/lazysizes', ssr: false }],
   modules: ['nuxt-purgecss', 'nuxt-webfontloader'],
   webfontloader: {
     google: {
-      families: ['Montserrat']
-    }
+      families: ['Raleway'],
+    },
   },
   router: {
     scrollBehavior: function(to, from, savedPosition) {
       return false;
-    }
+    },
   },
   purgeCSS: {
-    whitelistPatternsChildren: [/navWrapper$/, /portoCardColumn$/]
+    whitelistPatternsChildren: [/navWrapper$/, /portoCardColumn$/],
   },
   build: {
     extractCSS: true,
@@ -47,7 +43,7 @@ export default {
           enforce: 'pre',
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
-          exclude: /(node_modules)/
+          exclude: /(node_modules)/,
         });
       }
 
@@ -71,10 +67,10 @@ export default {
               placeholder: true,
               placeholderSize: 16,
               quality: 80,
-              adapter: sharp
-            }
-          }
-        ]
+              adapter: sharp,
+            },
+          },
+        ],
       });
 
       config.module.rules.push({
@@ -83,15 +79,15 @@ export default {
         include: path.resolve(__dirname, 'blogPosts'),
         options: {
           vue: {
-            root: 'dynamicMarkdown'
-          }
-        }
+            root: 'dynamicMarkdown',
+          },
+        },
       });
-    }
+    },
   },
   generate: {
     fallback: '404.html',
     subFolders: false,
-    routes: postsList.map(post => `/posts/${post}`)
-  }
+    routes: postsList.map(post => `/posts/${post}`),
+  },
 };
