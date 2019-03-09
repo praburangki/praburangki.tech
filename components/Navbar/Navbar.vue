@@ -45,5 +45,5 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-@import '~/assets/css/components/navbar.scss';
+@import './styles.scss';
 </style>

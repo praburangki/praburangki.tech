@@ -1,18 +1,17 @@
 <template lang="pug">
   div
-    PageTitle: h1 PORTFOLIOS
+    PageTitle PORTFOLIOS
     section.section
       .container
-        .columns.is-centered
-          .column.is-narrow
-            p.long-par.has-text-centered
-              |After 5+ years working as professional developer, here are some of the works that I've accomplished.
-        .columns.is-multiline.portos
-          Card(
-            v-for="item in cards",
-            :key="item.name",
-            :item="item"
-          )
+        .flex.flex-col
+          p.max-w-md.text-center.mb-8.mx-auto
+            |After 5+ years working as professional developer, here are some of the works that I've accomplished.
+          .flex.flex-wrap.mt-8
+            Card(
+              v-for="item in cards",
+              :key="item.name",
+              :item="item"
+            )
 </template>
 
 <script>
@@ -26,21 +25,16 @@ export default {
   head() {
     return {
       title: 'Portfolios',
-      meta: [generateMeta('title', 'Portfolios')]
+      meta: [generateMeta('title', 'Portfolios')],
     };
   },
   components: {
     Card,
-    PageTitle
+    PageTitle,
   },
   data: () => ({
-    cards
-  })
+    cards,
+  }),
 };
 </script>
 
-<style lang="scss" scoped>
-.portos {
-  margin-top: 30px;
-}
-</style>

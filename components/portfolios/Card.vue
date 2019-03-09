@@ -5,13 +5,13 @@ export default {
   props: {
     item: {
       type: Object,
-      default: () => ({})
-    }
+      default: () => ({}),
+    },
   },
   data: () => ({
     isActive: false,
     animated: false,
-    icons: { ...iconObj }
+    icons: { ...iconObj },
   }),
   methods: {
     toggleCard() {
@@ -20,16 +20,16 @@ export default {
       setTimeout(() => {
         this.animated = false;
       }, 800);
-    }
-  }
+    },
+  },
 };
 </script>
 
 
 <template lang="pug">
-  .column.is-12-mobile.is-6-tablet.is-4-desktop.portoCardColumn
+  .portoCardColumn.lg__w-1--3.p-3.md__w-1--6.w-full
     div.portoCard(:class="{ 'cardActive': isActive, [item.className]: true }")
-      h2
+      .titleBox.text-sm
         strong {{ item.name }}
         span {{ item.short }}
       .cardContent
@@ -45,7 +45,7 @@ export default {
           br
           a.button(target="_blank" rel="noopener noreferrer" :href="item.link")
             span Visit Site
-            span.icon.is-small.iconLink
+            span.iconLink.h-6.w-6
               svg(xmlns='http://www.w3.org/2000/svg', viewBox='0 0 18 18')
                 g(fill='none', fill-rule='evenodd')
                   path(d='M-3-3h24v24H-3z')

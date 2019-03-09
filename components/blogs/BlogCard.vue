@@ -12,30 +12,30 @@ export default {
   props: {
     title: {
       type: String,
-      default: ''
+      default: '',
     },
     slug: {
       type: String,
-      default: ''
+      default: '',
     },
     publishedAt: {
       type: String,
-      default: ''
-    }
+      default: '',
+    },
   },
   computed: {
     coverImg() {
       const coverImg = require(`~/blogPosts/images/${this.slug}/cover.jpg`);
 
       return coverImg;
-    }
-  }
+    },
+  },
 };
 </script>
 
 
 <style lang="scss" scoped>
-@import '~/assets/css/mixins/_media.scss';
+@import '~/designs/mixins/_media.scss';
 .column {
   margin-bottom: 70px;
 }

@@ -1,8 +1,9 @@
 .navWrapper {
   z-index: 1;
+
   .topNav {
-    height: 80px;
     width: 90%;
+    height: 80px;
     margin: 0 auto;
     transition: transform 0.5s;
     transform: translateZ(0);
@@ -22,13 +23,13 @@
   .toggleNav {
     position: relative;
     float: right;
-    height: 45px;
     width: 45px;
+    height: 45px;
     margin-top: 18px;
     overflow: hidden;
+    color: transparent;
     text-indent: 100%;
     white-space: nowrap;
-    color: transparent;
 
     span,
     span::before,
@@ -46,9 +47,9 @@
       transition: background 0.2s 0.5s;
 
       &::before,
-      &:after {
-        content: '';
+      &::after {
         left: 0;
+        content: '';
         transition: transform 0.2s 0.5s;
       }
 
@@ -66,18 +67,18 @@
     position: fixed;
     top: 0;
     left: 0;
-    height: 80px;
     width: 100%;
-    background-color: #151515;
+    height: 80px;
     visibility: hidden;
-    perspective: 1000px;
-    transform: translateY(-100%);
+    background-color: #151515;
     transition: transform 0.5s 0s, visibility 0s 0.5s;
+    transform: translateY(-100%);
+    perspective: 1000px;
 
     &.navIsVisible {
       visibility: visible;
-      transform: translateY(0);
       transition: transform 0.5s 0s, visibility 0.5s 0s;
+      transform: translateY(0);
     }
 
     @media only screen and (min-width: 768px) {
@@ -89,33 +90,32 @@
     position: relative;
     height: 100%;
     background-color: #151515;
-
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    transform-origin: center bottom;
-    transform: rotateX(90deg);
     transition: transform 0.5s;
+    transform: translateZ(0);
+    transform: rotateX(90deg);
+    transform-origin: center bottom;
+    backface-visibility: hidden;
 
     &::after {
-      content: '';
       position: absolute;
       top: 0;
       left: 0;
-      height: 100%;
       width: 100%;
+      height: 100%;
+      visibility: visible;
+      content: '';
       background-color: #000;
       opacity: 1;
-      visibility: visible;
       transition: opacity 0.5s 0s, visibility 0.5s 0s;
     }
 
     .navItem {
-      display: flex;
-      justify-content: center;
-      align-items: center;
       position: relative;
-      transition: background-color 0.2s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       color: #fff;
+      transition: background-color 0.2s;
       &:hover {
         background-color: #d73938;
       }
@@ -127,25 +127,25 @@
           position: absolute;
           bottom: 0;
           left: 0;
-          height: 3px;
           width: 100%;
-          transform-origin: center bottom;
-          transform: translateZ(0) rotateX(90deg);
+          height: 3px;
+          background-color: #d73938;
           transition: transform 0.5s, left 0.5s, color 0.5s,
             background-color 0.5s;
-          background-color: #d73938;
+          transform: translateZ(0) rotateX(90deg);
+          transform-origin: center bottom;
 
           &::before {
-            content: '';
             position: absolute;
+            right: auto;
             bottom: 3px;
             left: 50%;
-            right: auto;
-            transform: translateX(-50%);
-            height: 0;
             width: 0;
+            height: 0;
+            content: '';
             border: 10px solid transparent;
             border-bottom-color: #d73938;
+            transform: translateX(-50%);
           }
         }
       }
@@ -155,6 +155,7 @@
           size: 1.8rem;
           weight: 600;
         }
+
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
       }
@@ -165,8 +166,8 @@
     .navList {
       transform: translateZ(0);
       &::after {
-        opacity: 0;
         visibility: hidden;
+        opacity: 0;
         transition: opacity 0.5s 0s, visibility 0s 0.5s;
       }
 

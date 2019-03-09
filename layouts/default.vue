@@ -12,7 +12,7 @@
 </template>
 
 <script>
-import Navbar from '~/components/Navbar';
+import Navbar from '~/components/Navbar/Navbar';
 import commonMixin from '~/mixins/commonMixin';
 import profileImg from '~/assets/images/pic.jpg';
 
@@ -46,32 +46,3 @@ export default {
   },
 };
 </script>
-
-<style lang="scss">
-footer {
-  padding-bottom: 30px;
-
-  a {
-    color: #ffef00;
-  }
-
-  &.navIsVisible {
-    margin-top: 170px;
-  }
-}
-
-main {
-  flex: 1 1 0;
-  transition: transform 0.5s;
-  transform: translateZ(0);
-  backface-visibility: hidden;
-
-  &.navIsVisible {
-    transform: translateY(80px);
-
-    @media only screen and (min-width: 768px) {
-      transform: translateY(170px);
-    }
-  }
-}
-</style>

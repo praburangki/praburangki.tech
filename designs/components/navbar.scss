@@ -1,0 +1,198 @@
+.navWrapper {
+  z-index: 1;
+
+  .topNav {
+    width: 90%;
+    height: 80px;
+    margin: 0 auto;
+    transition: transform 0.5s;
+    transform: translateZ(0);
+    backface-visibility: hidden;
+
+    &.navIsVisible {
+      transform: translateY(80px);
+    }
+
+    @media only screen and (min-width: 768px) {
+      &.navIsVisible {
+        transform: translateY(170px);
+      }
+    }
+  }
+
+  .toggleNav {
+    position: relative;
+    float: right;
+    width: 45px;
+    height: 45px;
+    margin-top: 18px;
+    overflow: hidden;
+    color: transparent;
+    text-indent: 100%;
+    white-space: nowrap;
+
+    span,
+    span::before,
+    span::after {
+      position: absolute;
+      width: 28px;
+      height: 3px;
+      background-color: #fff;
+      backface-visibility: hidden;
+    }
+
+    span {
+      top: 21px;
+      left: 8px;
+      transition: background 0.2s 0.5s;
+
+      &::before,
+      &::after {
+        left: 0;
+        content: '';
+        transition: transform 0.2s 0.5s;
+      }
+
+      &::before {
+        bottom: 8px;
+      }
+
+      &::after {
+        top: 8px;
+      }
+    }
+  }
+
+  .navContainer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+    visibility: hidden;
+    background-color: #151515;
+    transition: transform 0.5s 0s, visibility 0s 0.5s;
+    transform: translateY(-100%);
+    perspective: 1000px;
+
+    &.navIsVisible {
+      visibility: visible;
+      transition: transform 0.5s 0s, visibility 0.5s 0s;
+      transform: translateY(0);
+    }
+
+    @media only screen and (min-width: 768px) {
+      height: 170px;
+    }
+  }
+
+  .navList {
+    position: relative;
+    height: 100%;
+    background-color: #151515;
+    transition: transform 0.5s;
+    transform: translateZ(0);
+    transform: rotateX(90deg);
+    transform-origin: center bottom;
+    backface-visibility: hidden;
+
+    &::after {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      visibility: visible;
+      content: '';
+      background-color: #000;
+      opacity: 1;
+      transition: opacity 0.5s 0s, visibility 0.5s 0s;
+    }
+
+    .navItem {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      transition: background-color 0.2s;
+      &:hover {
+        background-color: #d73938;
+      }
+
+      &.nuxt-link-exact-active {
+        background-color: #2b2b2b;
+
+        .navMarker {
+          position: absolute;
+          bottom: 0;
+          left: 0;
+          width: 100%;
+          height: 3px;
+          background-color: #d73938;
+          transition: transform 0.5s, left 0.5s, color 0.5s,
+            background-color 0.5s;
+          transform: translateZ(0) rotateX(90deg);
+          transform-origin: center bottom;
+
+          &::before {
+            position: absolute;
+            right: auto;
+            bottom: 3px;
+            left: 50%;
+            width: 0;
+            height: 0;
+            content: '';
+            border: 10px solid transparent;
+            border-bottom-color: #d73938;
+            transform: translateX(-50%);
+          }
+        }
+      }
+
+      @media only screen and (min-width: 768px) {
+        font: {
+          size: 1.8rem;
+          weight: 600;
+        }
+
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+      }
+    }
+  }
+
+  .navIsVisible {
+    .navList {
+      transform: translateZ(0);
+      &::after {
+        visibility: hidden;
+        opacity: 0;
+        transition: opacity 0.5s 0s, visibility 0s 0.5s;
+      }
+
+      .navItem.nuxt-link-exact-active .navMarker {
+        transform: translateZ(0);
+      }
+    }
+
+    .toggleNav {
+      span {
+        background-color: rgba(#fff, 0);
+
+        &::before,
+        &::after {
+          background-color: rgba(#fff, 1);
+        }
+
+        &::before {
+          transform: translateY(8px) rotate(-45deg);
+        }
+
+        &::after {
+          transform: translateY(-8px) rotate(45deg);
+        }
+      }
+    }
+  }
+}

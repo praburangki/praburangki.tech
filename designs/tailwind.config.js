@@ -71,7 +71,7 @@ let colors = {
   'yellow-darkest': '#453411',
   'yellow-darker': '#684f1d',
   'yellow-dark': '#f2d024',
-  yellow: '#ffed4a',
+  yellow: '#ffef00',
   'yellow-light': '#fff382',
   'yellow-lighter': '#fff9c2',
   'yellow-lightest': '#fcfbeb',
@@ -429,6 +429,7 @@ module.exports = {
     default: '.25rem',
     lg: '.5rem',
     full: '9999px',
+    half: '50%',
   },
 
   /*
@@ -508,6 +509,7 @@ module.exports = {
     '5': '1.25rem',
     '6': '1.5rem',
     '8': '2rem',
+    '9': '2.25rem',
     '10': '2.5rem',
     '12': '3rem',
     '16': '4rem',

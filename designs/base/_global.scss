@@ -1,0 +1,75 @@
+html {
+  font-family: config('fonts.raleway');
+  background-color: config('colors.dark');
+}
+
+body {
+  color: config('colors.light');
+
+  @apply leading-normal;
+  @apply tracking-normal;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  @apply font-normal;
+}
+
+a {
+  @apply no-underline;
+  @apply cursor-pointer;
+}
+
+hr {
+  @apply .rounded;
+
+  width: 60px;
+  height: 6px;
+  margin: 1.5rem auto;
+  background-color: config('colors.darkerRed');
+  border-style: none;
+}
+
+main {
+  @apply flex-1;
+}
+
+footer {
+  @apply pb-10;
+
+  a {
+    color: config('colors.yellow');
+  }
+}
+
+main,
+footer {
+  transition: transform 0.5s;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
+  &.navIsVisible {
+    transform: translateY(80px);
+
+    @media only screen and (min-width: 768px) {
+      transform: translateY(170px);
+    }
+  }
+}
+
+.section {
+  padding: 3rem 0;
+}
+
+.page-enter-active,
+.page-leave-active {
+  transition: opacity 0.5s;
+}
+.page-enter,
+.page-leave-active {
+  opacity: 0;
+}

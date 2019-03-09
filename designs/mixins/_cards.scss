@@ -21,7 +21,7 @@
       background-color: $secondary;
     }
   }
-  h2 {
+  .titleBox {
     background-color: $primary;
 
     &:after {
@@ -34,7 +34,7 @@
   }
 
   &.cardActive {
-    h2 {
+    .titleBox {
       &:before {
         @include borderColors(transparent, $primary, $primary, transparent);
       }

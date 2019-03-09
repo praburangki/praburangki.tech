@@ -3,20 +3,20 @@ import PostImg from '~/components/blogs/PostImg';
 
 export default {
   components: {
-    PostImg
+    PostImg,
   },
   props: {
     renderFunc: {
       type: String,
-      required: true
+      required: true,
     },
     staticRenderFuncs: {
       type: String,
-      required: true
-    }
+      required: true,
+    },
   },
   data: () => ({
-    templateRender: null
+    templateRender: null,
   }),
   created() {
     this.templateRender = new Function(this.renderFunc)();
@@ -24,10 +24,10 @@ export default {
   },
   render(h) {
     return this.templateRender ? this.templateRender() : h('div', 'loading');
-  }
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-@import '~/assets/css/components/blogPost.scss';
+@import '~/designs/components/blogPost.scss';
 </style>

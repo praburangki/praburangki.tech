@@ -19,7 +19,7 @@ export default {
     link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }],
   },
   loading: { color: '#00796b' },
-  css: ['~/assets/css/main.css'],
+  css: ['~/designs/main.scss'],
   plugins: [{ src: '~/plugins/lazysizes', ssr: false }],
   modules: ['nuxt-purgecss', 'nuxt-webfontloader'],
   webfontloader: {

@@ -1,0 +1,97 @@
+@import '_tailwind';
+
+// @import '~bulma/sass/utilities/initial-variables';
+// @import '~bulma/sass/utilities/functions';
+
+// // $dark: #1e2a30;
+// $dark: #353b3f;
+// $light: #eaeaea;
+// $text: $light;
+// $red: #d73938;
+// $darker-red: rgba(215, 57, 56, 0.7);
+// $text-strong: $text;
+
+// $primary: #a53b3e;
+
+// @import '~bulma';
+// @import 'mixins/media';
+
+// html {
+//   font-size: 16px;
+//   word-spacing: 1px;
+//   -ms-text-size-adjust: 100%;
+//   -webkit-text-size-adjust: 100%;
+//   -moz-osx-font-smoothing: grayscale;
+//   -webkit-font-smoothing: antialiased;
+//   box-sizing: border-box;
+// }
+
+// body {
+//   font-family: 'Montserrat', sans-serif;
+//   background-color: $dark;
+
+//   transition: color 200ms ease-out 0ms, background 100ms ease-out;
+
+//   &.light {
+//     background-color: $light;
+//     color: $dark;
+
+//     .toggleNav {
+//       span,
+//       span::before,
+//       span::after {
+//         background-color: #000 !important;
+//       }
+//     }
+
+//     .navIsVisible {
+//       span {
+//         background-color: rgba(#fff, 0) !important;
+//       }
+//     }
+
+//     footer a {
+//       color: $primary !important;
+//     }
+//   }
+// }
+
+// *,
+// *:before,
+// *:after {
+//   box-sizing: border-box;
+//   margin: 0;
+// }
+
+// a {
+//   color: $red;
+
+//   &:hover {
+//     color: $red;
+//   }
+// }
+
+// .sectionWrapper {
+//   display: flex;
+//   flex-direction: column;
+//   align-items: center;
+// }
+
+// .long-par {
+//   max-width: 630px;
+// }
+
+// hr {
+//   width: 60px;
+//   height: 6px;
+//   border-radius: 4px;
+//   border-style: none;
+//   background-color: $darker-red;
+//   margin-left: auto;
+//   margin-right: auto;
+// }
+
+// .card {
+//   border-radius: 10px;
+//   border: 1px solid white;
+// }
