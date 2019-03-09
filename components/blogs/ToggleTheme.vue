@@ -1,7 +1,7 @@
 <template lang="pug">
   .toggle-row
     nuxt-link(to="/blogs")
-      .button.is-primary Back
+      .button.text-white.bg-primary Back
     .toggle(@click="clickToggle", :class="{ checked: checked }")
       .toggle-track
         .track-dir.left
@@ -32,8 +32,8 @@ export default {
   props: {
     checked: {
       type: Boolean,
-      default: true
-    }
+      default: true,
+    },
   },
   methods: {
     clickToggle(e) {
@@ -42,18 +42,17 @@ export default {
     },
     onChange(e) {
       this.$emit('toggleTheme', e);
-    }
-  }
+    },
+  },
 };
 </script>
 
 <style lang="scss" scoped>
 .toggle-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin: 10px auto;
+  @apply flex items-center justify-between;
+
   width: 90%;
+  margin: 10px auto;
 
   .toggle {
     position: relative;

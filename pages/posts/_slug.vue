@@ -96,16 +96,16 @@ export default {
 </script>
 
 <template lang="pug">
-  section
+  section.blog
     ToggleTheme(@toggleTheme="toggleTheme", :checked="theme === 'dark'")
     .section-content
       article
-        .section-inner.section-layout
+        .relative.px-5.w-full.section-layout
           header: h1 {{ post.title }}
-          .published-at {{ post.publishedAt}}
-        .section-inner.section-fullWidth
+          .mt-5 {{ post.publishedAt}}
+        .relative.w-full
           PostImg(cover)
-        .section-inner.section-layout
+        .relative.px-5.w-full.section-layout
           main
             DynamicMarkdown(
               :renderFunc="post.renderFunc",
@@ -127,7 +127,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-section {
+section.blog {
   margin-bottom: 50px;
 
   .section-content {
@@ -135,33 +135,18 @@ section {
     word-wrap: break-word;
   }
 
-  .section-inner {
-    position: relative;
-  }
-
   .section-layout {
     max-width: 740px;
-    padding-left: 20px;
-    padding-right: 20px;
-    width: 100%;
     margin: 0 auto;
-  }
-
-  .section-fullWidth {
-    width: 100%;
-  }
-
-  .published-at {
-    margin-top: 20px;
   }
 
   article {
     header h1 {
-      font-weight: 700;
+      padding-top: 16px !important;
       font-size: 42px;
+      font-weight: 700;
       line-height: 1.25;
       letter-spacing: 0.85px;
-      padding-top: 16px !important;
 
       @media (max-width: 767px) {
         padding-top: 5px;
@@ -187,12 +172,12 @@ body {
   }
 
   footer.share {
-    margin-top: 20px;
     display: flex;
+    margin-top: 20px;
 
     .shareBtn {
-      text-decoration: none;
       margin-right: 10px;
+      text-decoration: none;
       background: none;
 
       svg {
