@@ -27,7 +27,7 @@ export default {
 
 
 <template lang="pug">
-  .portoCardColumn.lg__w-1--3.p-3.md__w-1--6.w-full
+  .portoCardColumn.p-3.lg__w-1--3.md__w-1--2.w-full
     div.portoCard(:class="{ 'cardActive': isActive, [item.className]: true }")
       .titleBox.text-sm
         strong {{ item.name }}

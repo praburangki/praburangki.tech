@@ -55,13 +55,13 @@ export default {
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 
   a {
-    text-decoration: none;
-    color: #777;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    display: inline-block;
     position: relative;
     z-index: 1;
+    display: inline-block;
+    padding: 10px 20px;
+    color: #777;
+    text-decoration: none;
+    text-transform: uppercase;
     transition-duration: 0.6s;
 
     &.nuxt-link-exact-active {
@@ -71,12 +71,11 @@ export default {
 }
 
 .selector {
-  top: 0px;
+  top: 0;
   z-index: 1;
-  transition-duration: 0.6s;
-  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
-
   background-color: #632325;
   background-image: linear-gradient(315deg, #632325 0%, #a53b3e 74%);
+  transition-timing-function: cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transition-duration: 0.6s;
 }
 </style>
