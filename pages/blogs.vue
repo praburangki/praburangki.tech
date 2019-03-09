@@ -48,7 +48,13 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-@import '~/designs/blogs.scss';
+/deep/ section.tab {
+  margin-top: 60px;
+}
+
+.blogListContainer {
+  margin-top: 50px;
+}
 
 .tabWrapper {
   background-color: #353b3f;

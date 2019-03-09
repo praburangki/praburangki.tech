@@ -1,6 +1,6 @@
 <template lang="pug">
   section.tab
-    .columns.is-multiline.is-variable.is-8.blogListContainer
+    .flex.flex-wrap.blogListContainer
       template(v-for="post in latestPosts")
         BlogCard(
           :title="post.title",
@@ -17,17 +17,17 @@ import { generateMeta } from '~/lib/metaTags';
 export default {
   asyncData({ store }) {
     return {
-      latestPosts: store.getters.latestPosts
+      latestPosts: store.getters.latestPosts,
     };
   },
   head() {
     return {
       title: 'Latest Blog Posts',
-      meta: [generateMeta('title', 'Latest Blog Posts')]
+      meta: [generateMeta('title', 'Latest Blog Posts')],
     };
   },
   components: {
-    BlogCard
-  }
+    BlogCard,
+  },
 };
 </script>

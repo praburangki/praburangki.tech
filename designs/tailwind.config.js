@@ -41,6 +41,7 @@ let colors = {
   dark: '#353b3f',
   light: '#eaeaea',
   darkerRed: 'rgba(215, 57, 56, 0.7)',
+  primary: '#a53b3e',
 
   black: '#22292f',
   'grey-darkest': '#3d4852',
