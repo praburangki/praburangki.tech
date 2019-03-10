@@ -9,13 +9,14 @@ if (process.client) {
   mediumZoom = require('medium-zoom').default;
 }
 
+const baseUrl = 'https://praburangki.tech';
+
 export default {
   asyncData({ store, params }) {
     const post = store.getters.getPost(params.slug);
     const { slug } = post;
     const coverImg = require(`~/blogPosts/images/${slug}/cover.jpg`);
     const coverImgSrc = coverImg.images.reverse()[0].path; // retrieve the highest resolution
-    const baseUrl = 'https://praburangki.tech';
 
     const imgPathSrc = baseUrl + coverImgSrc;
     const articleUrl = `${baseUrl}/posts/${slug}`;
@@ -60,7 +61,32 @@ export default {
   },
   data: () => ({
     theme: null,
+    isWebShareSupported: false,
   }),
+  computed: {
+    shareLinks() {
+      const { title, description, slug } = this.post;
+
+      const metaData = {
+        title: encodeURIComponent(
+          `Prabu Rangki baru saja menulis sebuah artikel: ${title}`
+        ),
+        description: encodeURIComponent(description),
+        url: encodeURIComponent(`${baseUrl}/posts/${slug}`),
+      };
+
+      return {
+        twitter: `https://twitter.com/intent/tweet?text=${metaData.title}&url=${
+          metaData.url
+        }&via=praburangki`,
+        facebook: `https://www.facebook.com/sharer/sharer.php?u=${
+          metaData.url
+        }&title=${metaData.title}&description=${metaData.description}&quote=${
+          metaData.title
+        }`,
+      };
+    },
+  },
   created() {
     this.theme = 'dark';
   },
@@ -74,6 +100,10 @@ export default {
     mediumZoom('.postImg-image', {
       background: '#DFE0E0',
     });
+
+    if (window.navigator.share) {
+      this.isWebShareSupported = true;
+    }
   },
   beforeDestroy() {
     document.querySelector('body').classList.remove('light');
@@ -89,6 +119,19 @@ export default {
       } else {
         bodyClass.add('light');
         localStorage.setItem('theme', 'light');
+      }
+    },
+    onClickWebShare() {
+      if (window.navigator.share) {
+        const { title, description, slug } = this.post;
+
+        const shareData = {
+          title,
+          text: `${description}`,
+          url: `/${slug}`,
+        };
+
+        window.navigator.share(shareData);
       }
     },
   },
@@ -117,7 +160,7 @@ export default {
             div.mt-4
               a.shareBtn.button(
                 title="Bagikan di Twitter"
-                href="https://github.com/praburangki/praburangki.tech/issues",
+                :href="shareLinks.twitter",
                 target="_blank",
                 rel="noopener noreferrer"
               )
@@ -125,8 +168,8 @@ export default {
                   <svg xmlns="http://www.w3.org/2000/svg"><path d="M22.053 7.54a4.474 4.474 0 0 0-3.31-1.455 4.526 4.526 0 0 0-4.526 4.524c0 .35.04.7.082 1.05a12.9 12.9 0 0 1-9.3-4.77c-.39.69-.61 1.46-.65 2.26.03 1.6.83 2.99 2.02 3.79-.72-.02-1.41-.22-2.02-.57-.01.02-.01.04 0 .08-.01 2.17 1.55 4 3.63 4.44-.39.08-.79.13-1.21.16-.28-.03-.57-.05-.81-.08.54 1.77 2.21 3.08 4.2 3.15a9.564 9.564 0 0 1-5.66 1.94c-.34-.03-.7-.06-1.05-.08 2 1.27 4.38 2.02 6.94 2.02 8.31 0 12.86-6.9 12.84-12.85.02-.24.01-.43 0-.65.89-.62 1.65-1.42 2.26-2.34-.82.38-1.69.62-2.59.72a4.37 4.37 0 0 0 1.94-2.51c-.84.53-1.81.9-2.83 1.13z"></path></svg>
                 span Twitter
               a.shareBtn.button(
-                title="Bagikan di Twitter"
-                href="https://github.com/praburangki/praburangki.tech/issues",
+                title="Bagikan di Facebook"
+                :href="shareLinks.facebook",
                 target="_blank",
                 rel="noopener noreferrer"
               )
@@ -134,8 +177,9 @@ export default {
                   <svg xmlns="http://www.w3.org/2000/svg"><path d="M23.209 5H5.792A.792.792 0 0 0 5 5.791V23.21c0 .437.354.791.792.791h9.303v-7.125H12.72v-2.968h2.375v-2.375c0-2.455 1.553-3.662 3.741-3.662 1.049 0 1.95.078 2.213.112v2.565h-1.517c-1.192 0-1.469.567-1.469 1.397v1.963h2.969l-.594 2.968h-2.375L18.11 24h5.099a.791.791 0 0 0 .791-.791V5.79a.791.791 0 0 0-.791-.79"></path></svg>
                 span Facebook
               a.shareBtn.button(
-                title="Bagikan"
-                href="https://github.com/praburangki/praburangki.tech/issues",
+                v-if="isWebShareSupported",
+                @click="onClickWebShare",
+                title="Bagikan",
                 target="_blank",
                 rel="noopener noreferrer"
               )
