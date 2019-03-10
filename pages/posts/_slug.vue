@@ -13,7 +13,7 @@ const baseUrl = 'https://praburangki.tech';
 
 export default {
   asyncData({ store, params }) {
-    const post = store.getters.getPost(params.slug);
+    const post = store.getters.getPost(params.slug) || {};
     const { slug } = post;
     const coverImg = require(`~/blogPosts/images/${slug}/cover.jpg`);
     const coverImgSrc = coverImg.images.reverse()[0].path; // retrieve the highest resolution

@@ -1,5 +1,5 @@
 <template lang="pug">
-  .w-full.sm__w-1--2.py-3.px-8.column
+  .w-full.md__w-1--2.py-3.md__px-8.column
     nuxt-link(:to="`/posts/${slug}`").blogsCard
       .thumbnail(:style="{'background-image': `url('${coverImg}')`}")
       .description.has-text-centered

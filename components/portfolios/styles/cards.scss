@@ -59,11 +59,16 @@ $portoList: (
 
 .portoCardColumn {
   max-height: 500px;
+  margin-bottom: 7rem;
+
+  @media screen and (max-width: 768px) and (min-width: 576px) {
+    margin-bottom: 9rem;
+  }
+
   .portoCard {
     position: relative;
     height: 0;
     padding-bottom: calc(100% - 16px);
-    margin-bottom: 6.6em;
     transition: all 0.3s;
 
     @each $key, $val in $portoList {
