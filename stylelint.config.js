@@ -31,13 +31,13 @@ module.exports = {
     // to avoid very slow selectors
     'selector-max-universal': 1,
     // Disallow allow global element/type selectors in scoped modules
-    'selector-max-type': [
-      0,
-      {
-        ignore: ['child', 'descendant', 'compounded'],
-        ignoreTypes: ['html', 'hr', 'footer'],
-      },
-    ],
+    // 'selector-max-type': [
+    //   0,
+    //   {
+    //     ignore: ['child', 'descendant', 'compounded'],
+    //     ignoreTypes: ['html', 'hr', 'footer'],
+    //   },
+    // ],
     // ===
     // PRETTIER
     // ===

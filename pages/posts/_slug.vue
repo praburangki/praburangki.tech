@@ -161,14 +161,14 @@ section.blog {
 body {
   .section-content a {
     color: inherit;
-    background-repeat: repeat-x;
     background-image: linear-gradient(
       to right,
       rgba(255, 255, 255, 0.84) 100%,
       rgba(255, 255, 255, 0) 0
     );
-    background-size: 1px 1px;
+    background-repeat: repeat-x;
     background-position: 0 1.06em;
+    background-size: 1px 1px;
   }
 
   footer.share {
