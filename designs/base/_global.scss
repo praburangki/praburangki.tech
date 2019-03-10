@@ -8,6 +8,29 @@ body {
 
   @apply leading-normal;
   @apply tracking-normal;
+
+  &.light {
+    color: config('colors.dark');
+    background-color: config('colors.light');
+
+    .toggleNav {
+      span,
+      span::before,
+      span::after {
+        background-color: #000 !important;
+      }
+    }
+
+    .navIsVisible {
+      span {
+        background-color: rgba(#fff, 0) !important;
+      }
+    }
+
+    footer a {
+      color: config('colors.primary') !important;
+    }
+  }
 }
 
 h1,
