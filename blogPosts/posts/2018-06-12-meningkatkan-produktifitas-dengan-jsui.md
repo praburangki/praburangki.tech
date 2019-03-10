@@ -73,5 +73,3 @@ Jika kamu mengalami kesulitan bisa lihat di [_issue page_](https://github.com/ki
 Aplikasi ini sendiri dibikin menggunakan React dan [Electron](https://electronjs.org/) jadi jika kamu sendiri ingin coba membantu memperbaikinya langsung saja bikin [_Pull Request_](https://github.com/kitze/JSUI/pulls) nya.
 
 Terakhir, jika kamu ingin memantau aktifitas perkembangan aplikasi ini bisa pantau di twitter sang pembuat aplikasi tersebut: [https://twitter.com/thekitze](https://twitter.com/thekitze)
-
-Semoga artikel dan aplikasi ini bermanfaat, salam Bebedag!
