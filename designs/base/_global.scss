@@ -27,8 +27,8 @@ body {
       }
     }
 
-    footer a {
-      color: config('colors.primary') !important;
+    footer#mainFooter a {
+      color: config('colors.primary');
     }
   }
 }

@@ -272,12 +272,18 @@ body {
     }
 
     footer.footer-post .shareBtn {
+      color: rgba(53, 59, 63, 0.75);
       background: none;
-      svg {
-        fill: rgba(0, 0, 0, 0.54);
+      border-color: rgba(53, 59, 63, 0.75);
 
-        &:hover {
-          fill: rgba(0, 0, 0, 0.84);
+      svg {
+        fill: rgba(53, 59, 63, 0.75);
+      }
+
+      &:hover {
+        color: rgba(53, 59, 63, 0.95);
+        svg {
+          fill: rgba(53, 59, 63, 0.95);
         }
       }
     }

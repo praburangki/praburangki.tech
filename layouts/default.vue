@@ -3,7 +3,7 @@
     Navbar(:navIsVisible="navIsVisible" @toggleNavbar="toggleNavbar")
     main(:class="this.navVisibleClass")
       nuxt
-    footer.text-center(:class="{ navIsVisible: navIsVisible }")
+    footer#mainFooter.text-center(:class="{ navIsVisible: navIsVisible }")
       div
         |Made with
         a(href="https://nuxtjs.org/" target="_blank" rel="noreferrer noopener")  Nuxt
