@@ -1,5 +1,5 @@
 <template lang="pug">
-  .w-full.md__w-1--2.py-3.md__px-8.column
+  .w-full.md__w-1--2.py-3.lg__px-5.md__px-3.column
     nuxt-link(:to="`/posts/${slug}`").blogsCard
       .thumbnail(:style="{'background-image': `url('${coverImg}')`}")
       .description.has-text-centered
@@ -41,26 +41,26 @@ export default {
 }
 
 .blogsCard {
-  cursor: pointer;
-  background-color: #eaeaea;
-  color: #3a3939;
-  border-radius: 2px;
-  box-shadow: 10px 10px 93px 0px rgba(0, 0, 0, 0.75);
-  padding: 0 1rem 1rem 1rem;
-  height: 100%;
   display: flex;
   flex-direction: column;
+  height: 100%;
+  padding: 0 1rem 1rem 1rem;
+  color: #3a3939;
+  cursor: pointer;
+  background-color: #eaeaea;
+  border-radius: 2px;
+  box-shadow: 10px 10px 93px 0 rgba(0, 0, 0, 0.75);
 
   .thumbnail {
     position: relative;
-    width: 100%;
     top: -20px;
-    overflow: hidden;
-    margin: 0 auto;
+    width: 100%;
     height: 180px;
-    box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.75);
-    background-size: cover;
+    margin: 0 auto;
+    overflow: hidden;
     background-position: center;
+    background-size: cover;
+    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.75);
 
     @include media-min(767px) {
       width: 85%;
@@ -68,22 +68,20 @@ export default {
 
     img {
       position: absolute;
-      width: 100%;
-      left: 50%;
       top: 50%;
+      left: 50%;
+      width: 100%;
       height: auto;
       transform: translate(-50%, -50%);
     }
   }
 
   .description {
-    margin-top: 40px;
-    margin-bottom: 40px;
-    flex: 1 0 0;
     display: flex;
+    flex: 1 0 0;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
 
     p {
       margin-top: 20px;

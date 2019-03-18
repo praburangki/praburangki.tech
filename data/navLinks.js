@@ -1,11 +1,7 @@
 export default [
   {
-    text: 'Home',
-    path: '/'
-  },
-  {
     text: 'Blog',
-    path: '/blogs'
+    path: '/'
   },
   {
     text: 'Portfolio',

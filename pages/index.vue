@@ -1,44 +1,38 @@
 <template lang="pug">
-  section.section
-    .container
-      .flex.flex-col.items-center
-        div
-          img.avatar.rounded-half.h-auto.mb-5(src="~assets/images/pic.jpg", alt="my avatar")
-        .text-center
-          h1.text-3xl.tracking-wide Hi
-          h1.text-4xl.tracking-wide I'm Prabu
-          h1.text-3xl.tracking-wide A Software Engineer
-        .socials.flex.justify-between.mt-5
-          div(v-for="social in socials", :key="social.id")
-            a(
-              target="_blank",
-              :href="social.link",
-              rel="noopener noreferrer",
-              :aria-label="social.ariaText"
-            )
-              Component(:is="social.icon")
+  #blogs
+    PageTitle BLOG
+    section.container
+      .flex.flex-wrap
+        template(v-for="post in allPosts")
+          BlogCard(:title="post.title" :slug="post.slug" :publishedAt="post.publishedAt")
 </template>
 
 <script>
-import socials from '~/data/socials';
+import BlogCard from '~/components/blogs/BlogCard';
+import PageTitle from '~/components/PageTitle';
+import { generateMeta } from '~/lib/metaTags';
 
 export default {
-  data: () => ({
-    socials,
-  }),
+  components: {
+    PageTitle,
+    BlogCard,
+  },
+  asyncData({ store }) {
+    return {
+      allPosts: store.state.postAttributes,
+    };
+  },
+  head() {
+    return {
+      title: 'Blog',
+      meta: [generateMeta('title', 'Blog')],
+    };
+  },
 };
 </script>
 
 <style lang="scss" scoped>
-.avatar {
-  width: 220px;
-}
-
-.socials {
-  width: 200px;
-
-  div {
-    width: 30px;
-  }
+section {
+  margin-top: 60px;
 }
 </style>

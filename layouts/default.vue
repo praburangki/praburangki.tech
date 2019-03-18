@@ -4,6 +4,15 @@
     main(:class="this.navVisibleClass")
       nuxt
     footer#mainFooter.text-center(:class="{ navIsVisible: navIsVisible }")
+      .socials.flex.justify-between.mt-5
+          div(v-for="social in socials", :key="social.id")
+            a(
+              target="_blank",
+              :href="social.link",
+              rel="noopener noreferrer",
+              :aria-label="social.ariaText"
+            )
+              Component(:is="social.icon")
       div
         |Made with
         a(href="https://nuxtjs.org/" target="_blank" rel="noreferrer noopener")  Nuxt
@@ -15,6 +24,7 @@
 import Navbar from '~/components/Navbar/Navbar';
 import commonMixin from '~/mixins/commonMixin';
 import profileImg from '~/assets/images/pic.jpg';
+import socials from '~/data/socials';
 
 import { generateMeta } from '~/lib/metaTags';
 
@@ -27,6 +37,7 @@ export default {
   mixins: [commonMixin],
   data: () => ({
     navIsVisible: false,
+    socials,
   }),
   methods: {
     toggleNavbar() {
@@ -46,3 +57,15 @@ export default {
   },
 };
 </script>
+
+<style lang="scss" scoped>
+.socials {
+  width: 200px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+
+  div {
+    width: 30px;
+  }
+}
+</style>
