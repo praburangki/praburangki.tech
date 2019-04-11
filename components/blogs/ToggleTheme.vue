@@ -27,24 +27,23 @@
     )
 </template>
 
-<script>
-export default {
-  props: {
-    checked: {
-      type: Boolean,
-      default: true,
-    },
-  },
-  methods: {
-    clickToggle(e) {
-      this.$refs.toggleCheckbox.focus();
-      this.$refs.toggleCheckbox.click();
-    },
-    onChange(e) {
-      this.$emit('toggleTheme', e);
-    },
-  },
-};
+<script lang="ts">
+import { Component, Vue, Prop } from 'nuxt-property-decorator';
+
+@Component({})
+export default class ToggleTheme extends Vue {
+  @Prop({ default: true })
+  checked: boolean;
+
+  clickToggle() {
+    (this.$refs.toggleCheckbox as any).focus();
+    (this.$refs.toggleCheckbox as any).click();
+  }
+
+  onChange(e) {
+    this.$emit('toggleTheme', e);
+  }
+}
 </script>
 
 <style lang="scss" scoped>

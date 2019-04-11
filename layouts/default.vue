@@ -20,30 +20,25 @@
         a(href="https://tailwindcss.com" target="_blank" rel="noreferrer noopener")  Tailwind
 </template>
 
-<script>
-import Navbar from '~/components/Navbar/Navbar';
-import commonMixin from '~/mixins/commonMixin';
+<script lang="ts">
+import { Component, mixins } from 'nuxt-property-decorator';
+import Navbar from '~/components/Navbar/Navbar.vue';
 import profileImg from '~/assets/images/pic.jpg';
 import socials from '~/data/socials';
-
 import { generateMeta } from '~/lib/metaTags';
+import CommonMixin from '~/mixins/commonMixin';
 
 const metaImgPath = `https://praburangki.tech${profileImg}`;
 
-export default {
+@Component({
   components: {
     Navbar,
   },
-  mixins: [commonMixin],
-  data: () => ({
-    navIsVisible: false,
-    socials,
-  }),
-  methods: {
-    toggleNavbar() {
-      this.navIsVisible = !this.navIsVisible;
-    },
-  },
+})
+export default class DefaultLayout extends mixins(CommonMixin) {
+  navIsVisible = false;
+  socials = socials;
+
   head() {
     return {
       htmlAttrs: {
@@ -54,8 +49,12 @@ export default {
         generateMeta('twitter:image', metaImgPath),
       ],
     };
-  },
-};
+  }
+
+  toggleNavbar() {
+    this.navIsVisible = !this.navIsVisible;
+  }
+}
 </script>
 
 <style lang="scss" scoped>

@@ -1,29 +1,21 @@
-<script>
-import commonMixin from '~/mixins/commonMixin';
+<script lang="ts">
+import { Component, mixins, Prop } from 'nuxt-property-decorator';
+import CommonMixin from '~/mixins/commonMixin';
 import navLinks from '~/data/navLinks';
 
-export default {
-  mixins: [commonMixin],
-  props: {
-    navIsVisible: {
-      type: Boolean,
-      default: false,
-    },
-  },
-  data: () => ({
-    navLinks,
-  }),
-  computed: {
-    navVisibleClass() {
-      return { navIsVisible: this.navIsVisible };
-    },
-  },
-  methods: {
-    toggleNavbar() {
-      this.$emit('toggleNavbar');
-    },
-  },
-};
+@Component({})
+export default class Navbar extends mixins(CommonMixin) {
+  @Prop({ default: false })
+  navIsVisible: boolean;
+  navLinks = navLinks;
+
+  get navVisibleClass() {
+    return { navIsVisible: this.navIsVisible };
+  }
+  toggleNavbar() {
+    this.$emit('toggleNavbar');
+  }
+}
 </script>
 
 <template lang="pug">

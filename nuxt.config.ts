@@ -1,13 +1,15 @@
 import metatags from './lib/metaTags';
-const path = require('path');
-const fs = require('fs');
+import * as path from 'path';
+import * as fs from 'fs';
+import NuxtConfiguration from '@nuxt/config';
+// eslint-disable-next-line
 const sharp = require('responsive-loader/sharp');
 
-const postsList = fs.readdirSync('./blogPosts/posts').map(file => {
-  return path.basename(file, '.md');
-});
+const postsList = fs
+  .readdirSync('./blogPosts/posts')
+  .map(file => path.basename(file, '.md'));
 
-export default {
+const config: NuxtConfiguration = {
   head: {
     title: 'Personal Site',
     titleTemplate: '%s | praburangki',
@@ -27,11 +29,6 @@ export default {
       families: ['Raleway:300,400,700'],
     },
   },
-  router: {
-    scrollBehavior: function(to, from, savedPosition) {
-      return false;
-    },
-  },
   purgeCSS: {
     whitelistPatternsChildren: [/navWrapper$/, /portoCardColumn$/],
   },
@@ -47,11 +44,10 @@ export default {
         });
       }
 
-      config.module.rules.find(
-        rule =>
-          rule.use
-            ? rule.use[0].loader === 'url-loader'
-            : rule.loader === 'url-loader'
+      config.module.rules.find(rule =>
+        rule.use
+          ? rule.use[0].loader === 'url-loader'
+          : rule.loader === 'url-loader'
       ).exclude = /\.(jpe?g|png)$/;
 
       config.module.rules.push({
@@ -73,6 +69,7 @@ export default {
         ],
       });
 
+      /*eslint-env node*/
       config.module.rules.push({
         test: /\.md$/,
         loader: 'frontmatter-markdown-loader',
@@ -83,6 +80,7 @@ export default {
           },
         },
       });
+      console.log(config.module.rules);
     },
   },
   generate: {
@@ -91,3 +89,5 @@ export default {
     routes: postsList.map(post => `/posts/${post}`),
   },
 };
+
+export default config;

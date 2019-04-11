@@ -22,26 +22,29 @@
 
 </template>
 
-<script>
-import SkillsIcons from '~/components/SkillsIcons';
-import PageTitle from '~/components/PageTitle';
-import GdgIcon from '~/components/Icons/GdgIcon';
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator';
+import SkillsIcons from '~/components/SkillsIcons.vue';
+import PageTitle from '~/components/PageTitle.vue';
+import GdgIcon from '~/components/Icons/GdgIcon.vue';
 
 import { generateMeta } from '~/lib/metaTags';
 
-export default {
-  head() {
-    return {
-      title: 'Skills',
-      meta: [generateMeta('title', 'Skills')],
-    };
-  },
+@Component({
   components: {
     SkillsIcons,
     PageTitle,
     GdgIcon,
   },
-};
+})
+export default class SkillsPage extends Vue {
+  head() {
+    return {
+      title: 'Skills',
+      meta: [generateMeta('title', 'Skills')],
+    };
+  }
+}
 </script>
 
 <style scoped>

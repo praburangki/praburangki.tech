@@ -7,28 +7,31 @@
           BlogCard(:title="post.title" :slug="post.slug" :publishedAt="post.publishedAt")
 </template>
 
-<script>
-import BlogCard from '~/components/blogs/BlogCard';
-import PageTitle from '~/components/PageTitle';
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator';
+import BlogCard from '~/components/blogs/BlogCard.vue';
+import PageTitle from '~/components/PageTitle.vue';
 import { generateMeta } from '~/lib/metaTags';
 
-export default {
+@Component({
   components: {
     PageTitle,
     BlogCard,
   },
+})
+export default class HomePage extends Vue {
   asyncData({ store }) {
     return {
       allPosts: store.state.postAttributes,
     };
-  },
+  }
   head() {
     return {
       title: 'Blog',
       meta: [generateMeta('title', 'Blog')],
     };
-  },
-};
+  }
+}
 </script>
 
 <style lang="scss" scoped>

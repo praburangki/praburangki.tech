@@ -7,13 +7,13 @@
         nuxt-link(to="/") Back to home page
 </template>
 
-<script>
-export default {
-  props: {
-    error: {
-      type: Object,
-      default: () => ({})
-    }
-  }
-};
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator';
+
+@Component({
+  props: ['error'],
+})
+export default class ErrorLayout extends Vue {
+  error: any;
+}
 </script>

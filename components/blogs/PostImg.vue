@@ -1,31 +1,25 @@
-<script>
-export default {
-  props: {
-    cover: {
-      type: Boolean,
-      default: false
-    },
-    name: {
-      type: String,
-      default: ''
-    },
-    caption: {
-      type: String,
-      default: ''
-    }
-  },
-  computed: {
-    postImg() {
-      const slugUrl = this.$route.params.slug;
-      const imgSrc = this.cover
-        ? require(`~/blogPosts/images/${slugUrl}/cover.jpg`)
-        : require(`~/blogPosts/images/${slugUrl}/${this.name}`);
-      const paddingBottom = (imgSrc.height / imgSrc.width) * 100;
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator';
 
-      return { padding: { paddingBottom: `${paddingBottom}%` }, ...imgSrc };
-    }
+@Component({
+  props: ['cover', 'name', 'caption'],
+})
+export default class PostImg extends Vue {
+  cover: boolean;
+  name: string;
+  caption: string;
+
+  get postImg() {
+    const slugUrl = this.$route.params.slug;
+    /*eslint-env node*/
+    const imgSrc = this.cover
+      ? require(`~/blogPosts/images/${slugUrl}/cover.jpg`)
+      : require(`~/blogPosts/images/${slugUrl}/${this.name}`);
+    const paddingBottom = (imgSrc.height / imgSrc.width) * 100;
+
+    return { padding: { paddingBottom: `${paddingBottom}%` }, ...imgSrc };
   }
-};
+}
 </script>
 
 <template lang="pug">

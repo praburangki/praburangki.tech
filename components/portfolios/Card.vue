@@ -1,28 +1,24 @@
-<script>
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator';
 import { iconObj } from '~/components/Icons';
 
-export default {
-  props: {
-    item: {
-      type: Object,
-      default: () => ({}),
-    },
-  },
-  data: () => ({
-    isActive: false,
-    animated: false,
-    icons: { ...iconObj },
-  }),
-  methods: {
-    toggleCard() {
-      this.isActive = !this.isActive;
-      this.animated = true;
-      setTimeout(() => {
-        this.animated = false;
-      }, 800);
-    },
-  },
-};
+@Component({
+  props: ['item'],
+})
+export default class Card extends Vue {
+  item: any;
+  isActive = false;
+  animated = false;
+  icons = { ...iconObj };
+
+  toggleCard() {
+    this.isActive = !this.isActive;
+    this.animated = true;
+    setTimeout(() => {
+      this.animated = false;
+    }, 800);
+  }
+}
 </script>
 
 

@@ -7,30 +7,24 @@
         p {{ publishedAt }}
 </template>
 
-<script>
-export default {
-  props: {
-    title: {
-      type: String,
-      default: '',
-    },
-    slug: {
-      type: String,
-      default: '',
-    },
-    publishedAt: {
-      type: String,
-      default: '',
-    },
-  },
-  computed: {
-    coverImg() {
-      const coverImg = require(`~/blogPosts/images/${this.slug}/cover.jpg`);
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator';
 
-      return coverImg;
-    },
-  },
-};
+@Component({
+  props: ['title', 'slug', 'publishedAt'],
+})
+export default class BlogCard extends Vue {
+  title: string;
+  slug: string;
+  publishedAt: string;
+
+  get coverImg() {
+    /*eslint-env node*/
+    const coverImg = require(`~/blogPosts/images/${this.slug}/cover.jpg`);
+
+    return coverImg;
+  }
+}
 </script>
 
 

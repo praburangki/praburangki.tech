@@ -8,21 +8,19 @@
         .iconName.has-text-centered {{ name.name }}
 </template>
 
-<script>
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator';
 import iconComponents from '~/components/Icons';
 
-export default {
-  data: () => ({
-    names: [...iconComponents],
-  }),
-};
+@Component({})
+export default class SkillsIcon extends Vue {
+  names = [...iconComponents];
+}
 </script>
 
 
 <style lang="scss" scoped>
 .iconContainer {
-  /* margin-top: 30px; */
-
   > div:first-child {
     visibility: hidden;
     margin-bottom: 20px;
@@ -43,7 +41,6 @@ export default {
   }
 
   .iconName {
-    // margin-top: auto;
     margin-top: 20px;
   }
 }

@@ -1,23 +1,41 @@
 module.exports = {
-  root: true,
-  env: {
-    browser: true,
-    node: true,
-  },
+  parser: 'vue-eslint-parser',
   parserOptions: {
-    parser: 'babel-eslint',
-    sourceType: 'module',
+    parser: '@typescript-eslint/parser',
   },
-  extends: [
-    'plugin:vue/recommended',
-    'standard',
-    'prettier',
-    'prettier/standard',
-    'prettier/vue',
-  ],
+  plugins: ['@typescript-eslint'],
+  extends: ['plugin:@typescript-eslint/recommended', 'plugin:vue/recommended'],
   rules: {
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
-    'no-new-func': 0,
+    'indent-legacy': [
+      'error',
+      2,
+      {
+        VariableDeclarator: 1,
+        outerIIFEBody: 1,
+        MemberExpression: 1,
+        CallExpression: { arguments: 1 },
+      },
+    ],
+    semi: 'error',
+    'no-undef': 'error',
+    'no-unused-vars': 'error',
+    'require-jsdoc': 'off',
+    'no-console': ['error', { allow: ['warn', 'error'] }],
+    '@typescript-eslint/indent': ['error', 2],
+    '@typescript-eslint/explicit-function-return-type': ['off'],
+    '@typescript-eslint/camelcase': ['error', { properties: 'never' }],
+    '@typescript-eslint/explicit-member-accessibility': 'off',
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/no-var-requires': 'off',
+    'vue/component-name-in-template-casing': ['error', 'kebab-case'],
   },
+  overrides: [
+    {
+      files: ['**/*.vue'],
+      rules: {
+        '@typescript-eslint/indent': 'off',
+        'no-undef': 'error',
+      },
+    },
+  ],
 };

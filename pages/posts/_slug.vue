@@ -1,17 +1,32 @@
-<script>
-import DynamicMarkdown from '~/components/blogs/DynamicMarkdown';
-import ToggleTheme from '~/components/blogs/ToggleTheme';
-import PostImg from '~/components/blogs/PostImg';
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator';
+import DynamicMarkdown from '~/components/blogs/DynamicMarkdown.vue';
+import ToggleTheme from '~/components/blogs/ToggleTheme.vue';
+import PostImg from '~/components/blogs/PostImg.vue';
 
 import { generateMeta } from '~/lib/metaTags';
 let mediumZoom = null;
+/*eslint-env node*/
 if (process.client) {
   mediumZoom = require('medium-zoom').default;
 }
 
 const baseUrl = 'https://praburangki.tech';
 
-export default {
+@Component({
+  components: {
+    DynamicMarkdown,
+    ToggleTheme,
+    PostImg,
+  },
+})
+export default class BlogPostPage extends Vue {
+  theme = null;
+  isWebShareSupported = false;
+  post;
+  imgPathSrc;
+  articleUrl;
+
   asyncData({ store, params }) {
     const post = store.getters.getPost(params.slug) || {};
     const { slug } = post;
@@ -26,7 +41,31 @@ export default {
       imgPathSrc,
       articleUrl,
     };
-  },
+  }
+
+  get shareLinks() {
+    const { title, description, slug } = this.post;
+
+    const metaData = {
+      title: encodeURIComponent(
+        `Prabu Rangki baru saja menulis sebuah artikel: ${title}`
+      ),
+      description: encodeURIComponent(description),
+      url: encodeURIComponent(`${baseUrl}/posts/${slug}`),
+    };
+
+    return {
+      twitter: `https://twitter.com/intent/tweet?text=${metaData.title}&url=${
+        metaData.url
+      }&via=praburangki`,
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${
+        metaData.url
+      }&title=${metaData.title}&description=${metaData.description}&quote=${
+        metaData.title
+      }`,
+    };
+  }
+
   head() {
     const { title, description, publishedTime } = this.post;
     const publishedAt = new Date(publishedTime);
@@ -48,48 +87,17 @@ export default {
         generateMeta('twitter:creator', '@praburangki'),
         generateMeta('twitter:site', '@praburangki'),
         generateMeta('author', 'Prabu Rangki', 'property'),
-        generateMeta('article:publisher', this.baseUrl, 'property'),
-        generateMeta('article:author', this.baseUrl, 'property'),
+        generateMeta('article:publisher', baseUrl, 'property'),
+        generateMeta('article:author', baseUrl, 'property'),
         generateMeta('article:published_time', publishedAt, 'property'),
       ],
     };
-  },
-  components: {
-    DynamicMarkdown,
-    ToggleTheme,
-    PostImg,
-  },
-  data: () => ({
-    theme: null,
-    isWebShareSupported: false,
-  }),
-  computed: {
-    shareLinks() {
-      const { title, description, slug } = this.post;
+  }
 
-      const metaData = {
-        title: encodeURIComponent(
-          `Prabu Rangki baru saja menulis sebuah artikel: ${title}`
-        ),
-        description: encodeURIComponent(description),
-        url: encodeURIComponent(`${baseUrl}/posts/${slug}`),
-      };
-
-      return {
-        twitter: `https://twitter.com/intent/tweet?text=${metaData.title}&url=${
-          metaData.url
-        }&via=praburangki`,
-        facebook: `https://www.facebook.com/sharer/sharer.php?u=${
-          metaData.url
-        }&title=${metaData.title}&description=${metaData.description}&quote=${
-          metaData.title
-        }`,
-      };
-    },
-  },
   created() {
     this.theme = 'dark';
-  },
+  }
+
   mounted() {
     const savedTheme = localStorage.getItem('theme');
     if (savedTheme) {
@@ -101,41 +109,42 @@ export default {
       background: '#DFE0E0',
     });
 
-    if (window.navigator.share) {
+    if ((window.navigator as any).share) {
       this.isWebShareSupported = true;
     }
-  },
+  }
+
   beforeDestroy() {
     document.querySelector('body').classList.remove('light');
-  },
-  methods: {
-    toggleTheme(e) {
-      const isChecked = e.target.checked;
-      const bodyClass = document.querySelector('body').classList;
-      this.theme = isChecked ? 'dark' : 'light';
-      if (isChecked) {
-        bodyClass.remove('light');
-        localStorage.removeItem('theme');
-      } else {
-        bodyClass.add('light');
-        localStorage.setItem('theme', 'light');
-      }
-    },
-    onClickWebShare() {
-      if (window.navigator.share) {
-        const { title, description, slug } = this.post;
+  }
 
-        const shareData = {
-          title,
-          text: `${description}`,
-          url: `/${slug}`,
-        };
+  toggleTheme(e) {
+    const isChecked = e.target.checked;
+    const bodyClass = document.querySelector('body').classList;
+    this.theme = isChecked ? 'dark' : 'light';
+    if (isChecked) {
+      bodyClass.remove('light');
+      localStorage.removeItem('theme');
+    } else {
+      bodyClass.add('light');
+      localStorage.setItem('theme', 'light');
+    }
+  }
 
-        window.navigator.share(shareData);
-      }
-    },
-  },
-};
+  onClickWebShare() {
+    if ((window.navigator as any).share) {
+      const { title, description, slug } = this.post;
+
+      const shareData = {
+        title,
+        text: `${description}`,
+        url: `/${slug}`,
+      };
+
+      (window.navigator as any).share(shareData);
+    }
+  }
+}
 </script>
 
 <template lang="pug">

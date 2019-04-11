@@ -14,27 +14,28 @@
             )
 </template>
 
-<script>
-import Card from '~/components/portfolios/Card';
-import PageTitle from '~/components/PageTitle';
+<script lang="ts">
+import { Component, Vue } from 'nuxt-property-decorator';
+import Card from '~/components/portfolios/Card.vue';
+import PageTitle from '~/components/PageTitle.vue';
 import cards from '~/data/portfolios';
 
 import { generateMeta } from '~/lib/metaTags';
 
-export default {
+@Component({
+  components: {
+    Card,
+    PageTitle,
+  },
+})
+export default class PortfoliosPage extends Vue {
   head() {
     return {
       title: 'Portfolios',
       meta: [generateMeta('title', 'Portfolios')],
     };
-  },
-  components: {
-    Card,
-    PageTitle,
-  },
-  data: () => ({
-    cards,
-  }),
-};
-</script>
+  }
 
+  cards = cards;
+}
+</script>
