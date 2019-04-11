@@ -9,7 +9,6 @@ const importAll = resolve => {
   resolve.keys().forEach(key => {
     const [, name] = key.match(/\/(.+)\.md$/);
     const { attributes, vue } = resolve(key);
-    console.log(resolve(key));
 
     const publishedAt = formatDate(attributes.publishedAt);
 

@@ -1,12 +1,13 @@
 <script lang="ts">
-import { Component, Vue } from 'nuxt-property-decorator';
+import { Component, Vue, Prop } from 'nuxt-property-decorator';
 
-@Component({
-  props: ['cover', 'name', 'caption'],
-})
+@Component({})
 export default class PostImg extends Vue {
+  @Prop({ type: Boolean, default: false })
   cover: boolean;
+  @Prop({})
   name: string;
+  @Prop({})
   caption: string;
 
   get postImg() {
