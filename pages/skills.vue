@@ -12,11 +12,11 @@
         SkillsIcons
         hr
         .text-base2x.text-center.mb-4.mt-10 Community
-        p.max-w-md.text-center.mb-8.mx-auto
+        p.max-w-md.text-center.mx-auto
           |I love to share and contribute to the local communities.
           |I've been giving talks and workshops in various meetups and conferences.
           |Currently I'm the manager of <strong>GDG Bali</strong>.
-        .gdgIcon
+        .max-w-xs.mx-auto.my-12
           a(href="https://gdgbali.com", target="_blank", rel="noopener noreferrer")
             GdgIcon
 
@@ -46,10 +46,3 @@ export default class SkillsPage extends Vue {
   }
 }
 </script>
-
-<style scoped>
-.gdgIcon {
-  max-width: 300px;
-  margin: 50px auto;
-}
-</style>
