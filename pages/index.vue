@@ -1,7 +1,7 @@
 <template lang="pug">
   #blogs
     PageTitle BLOG
-    section.container
+    section.container.mt-16
       .flex.flex-wrap
         template(v-for="post in allPosts")
           BlogCard(:title="post.title" :slug="post.slug" :publishedAt="post.publishedAt")
@@ -33,9 +33,3 @@ export default class HomePage extends Vue {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-section {
-  margin-top: 60px;
-}
-</style>

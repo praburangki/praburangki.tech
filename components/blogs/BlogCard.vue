@@ -2,7 +2,7 @@
   .w-full.md__w-1--2.py-3.lg__px-5.md__px-3.column
     nuxt-link(:to="`/posts/${slug}`").blogsCard
       .thumbnail(:style="{'background-image': `url('${coverImg}')`}")
-      .description.has-text-centered
+      .description.text-center
         .is-size-5: strong {{ title }}
         p {{ publishedAt }}
 </template>

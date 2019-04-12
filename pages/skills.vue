@@ -1,27 +1,3 @@
-<template lang="pug">
-  div
-    PageTitle SKILLS
-    section.section
-      .container
-        p.max-w-md.text-center.mb-8.mx-auto
-          |My passion lies in two major areas, <strong>software development</strong> and <strong>community building</strong>.
-          |Building things that can benefit a lot of people and to help other developers to grow is how I enjoy my life.
-        hr
-        .text-base2x.text-center.mb-4 Development
-        .text-xl.text-center Here is a list of technologies that I'm experienced in:
-        SkillsIcons
-        hr
-        .text-base2x.text-center.mb-4.mt-10 Community
-        p.max-w-md.text-center.mx-auto
-          |I love to share and contribute to the local communities.
-          |I've been giving talks and workshops in various meetups and conferences.
-          |Currently I'm the manager of <strong>GDG Bali</strong>.
-        .max-w-xs.mx-auto.my-12
-          a(href="https://gdgbali.com", target="_blank", rel="noopener noreferrer")
-            GdgIcon
-
-</template>
-
 <script lang="ts">
 import { Component, Vue } from 'nuxt-property-decorator';
 import SkillsIcons from '~/components/SkillsIcons.vue';
@@ -46,3 +22,48 @@ export default class SkillsPage extends Vue {
   }
 }
 </script>
+
+<template lang="pug">
+  div
+    PageTitle SKILLS
+    section.section
+      .container
+        p.headingMb
+          |My passion lies in two major areas, <strong>software development</strong> and <strong>community building</strong>.
+          |Building things that can benefit a lot of people and to help other developers to grow is how I enjoy my life.
+        hr
+        .subtitle Development
+        .caption Here is a list of technologies that I'm experienced in:
+        SkillsIcons
+        hr
+        .subtitleMt Community
+        p.heading
+          |I love to share and contribute to the local communities.
+          |I've been giving talks and workshops in various meetups and conferences.
+          |Currently I'm the manager of <strong>GDG Bali</strong>.
+        .gdgIcon
+          a(href="https://gdgbali.com", target="_blank", rel="noopener noreferrer")
+            GdgIcon
+
+</template>
+
+<style lang="postcss" scoped>
+.heading {
+  @apply max-w-md text-center mx-auto;
+}
+.headingMb {
+  @apply heading mb-8;
+}
+.subtitle {
+  @apply text-base2x text-center mb-4;
+}
+.subtitleMt {
+  @apply subtitle mt-10;
+}
+.caption {
+  @apply text-xl text-center mb-8;
+}
+.gdgIcon {
+  @apply max-w-xs mx-auto my-12;
+}
+</style>

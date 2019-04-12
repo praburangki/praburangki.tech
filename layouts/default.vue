@@ -4,8 +4,8 @@
     main(:class="this.navVisibleClass")
       nuxt
     footer#mainFooter.text-center(:class="{ navIsVisible: navIsVisible }")
-      .socials.flex.justify-between.mt-5
-          div(v-for="social in socials", :key="social.id")
+      .socials.flex.justify-center.mb-2
+          .w-6.mx-4(v-for="social in socials", :key="social.id")
             a(
               target="_blank",
               :href="social.link",
@@ -56,15 +56,3 @@ export default class DefaultLayout extends mixins(CommonMixin) {
   }
 }
 </script>
-
-<style lang="scss" scoped>
-.socials {
-  width: 200px;
-  margin: 0 auto;
-  margin-bottom: 30px;
-
-  div {
-    width: 30px;
-  }
-}
-</style>

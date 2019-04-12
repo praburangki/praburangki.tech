@@ -1,6 +1,6 @@
 <template lang="pug">
   .container
-    .columns.is-centered.is-multiline.has-text-centered
+    .columns.is-centered.is-multiline.text-center
       .column.is-12
         h1.is-size-1(v-if="error.statusCode === 404") Page Not Found
       .column
