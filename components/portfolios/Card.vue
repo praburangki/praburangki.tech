@@ -21,7 +21,6 @@ export default class Card extends Vue {
 }
 </script>
 
-
 <template lang="pug">
   .portoCardColumn.md__p-3.lg__w-1--3.md__w-1--2.w-full
     div.portoCard(:class="{ 'cardActive': isActive, [item.className]: true }")

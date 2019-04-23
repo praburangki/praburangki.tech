@@ -1,40 +1,26 @@
 module.exports = {
+  env: {
+    es6: true,
+    node: true,
+    browser: true,
+  },
   parser: 'vue-eslint-parser',
   parserOptions: {
     parser: '@typescript-eslint/parser',
   },
-  plugins: ['@typescript-eslint'],
-  extends: ['plugin:@typescript-eslint/recommended', 'plugin:vue/recommended'],
+  plugins: ['@typescript-eslint', 'prettier'],
+  extends: [
+    'plugin:vue/recommended',
+    'plugin:@typescript-eslint/recommended',
+    'prettier',
+    'prettier/vue',
+    'prettier/@typescript-eslint',
+  ],
   rules: {
-    'indent-legacy': [
-      'error',
-      2,
-      {
-        VariableDeclarator: 1,
-        outerIIFEBody: 1,
-        MemberExpression: 1,
-        CallExpression: { arguments: 1 },
-      },
-    ],
-    semi: 'error',
-    'no-undef': 'error',
-    'no-unused-vars': 'error',
-    'require-jsdoc': 'off',
-    '@typescript-eslint/indent': ['error', 2],
+    'prettier/prettier': ['error'],
     '@typescript-eslint/explicit-function-return-type': ['off'],
-    '@typescript-eslint/camelcase': ['error', { properties: 'never' }],
-    '@typescript-eslint/explicit-member-accessibility': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
     '@typescript-eslint/no-var-requires': 'off',
-    'vue/component-name-in-template-casing': ['error', 'kebab-case'],
+    '@typescript-eslint/interface-name-prefix': ['error', 'always'],
   },
-  overrides: [
-    {
-      files: ['**/*.vue'],
-      rules: {
-        '@typescript-eslint/indent': 'off',
-        'no-undef': 'error',
-      },
-    },
-  ],
 };

@@ -17,7 +17,6 @@ export default class SkillsIcon extends Vue {
 }
 </script>
 
-
 <style lang="scss" scoped>
 svg {
   filter: drop-shadow(0px 0px 1px rgba(255, 255, 255, 1));

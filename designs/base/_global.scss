@@ -63,10 +63,10 @@ main {
 
 footer {
   @apply pb-10;
+}
 
-  a {
-    color: config('colors.yellow');
-  }
+a {
+  color: config('colors.yellow');
 }
 
 main,

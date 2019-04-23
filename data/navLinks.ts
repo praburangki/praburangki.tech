@@ -1,14 +1,18 @@
 export default [
   {
     text: 'Blog',
-    path: '/'
+    path: '/',
   },
   {
     text: 'Portfolio',
-    path: '/portfolios'
+    path: '/portfolios',
   },
   {
-    text: 'Skill',
-    path: '/skills'
-  }
+    text: 'Profile',
+    path: '/profile',
+  },
+  {
+    text: 'Projects',
+    path: '/projects',
+  },
 ];

@@ -12,6 +12,7 @@ export default class Navbar extends mixins(CommonMixin) {
   get navVisibleClass() {
     return { navIsVisible: this.navIsVisible };
   }
+
   toggleNavbar() {
     this.$emit('toggleNavbar');
   }

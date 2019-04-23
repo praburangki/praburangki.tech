@@ -2,7 +2,7 @@ import metatags from './lib/metaTags';
 import * as path from 'path';
 import * as fs from 'fs';
 import NuxtConfiguration from '@nuxt/config';
-// eslint-disable-next-line
+
 const sharp = require('responsive-loader/sharp');
 
 const postsList = fs

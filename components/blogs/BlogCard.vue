@@ -1,7 +1,7 @@
 <template lang="pug">
   .w-full.md__w-1--2.py-3.lg__px-5.md__px-3.mb-16
-    nuxt-link(:to="`/posts/${slug}`").blogsCard
-      .thumbnail(:style="{'background-image': `url('${coverImg}')`}")
+    nuxt-link(:to="cardMeta.link").blogsCard
+      .thumbnail(:style="{'background-image': `url('${cardMeta.coverImg}')`}")
       .flex.flex-col.flex-1.items-center.justify-center.text-center
         h3.text-xl.font-bold.my-3 {{ title }}
         p {{ publishedAt }}
@@ -11,22 +11,39 @@
 import { Component, Vue } from 'nuxt-property-decorator';
 
 @Component({
-  props: ['title', 'slug', 'publishedAt'],
+  props: {
+    title: String,
+    slug: String,
+    publishedAt: String,
+    blogPost: {
+      type: Boolean,
+      default: false,
+    },
+  },
 })
 export default class BlogCard extends Vue {
   title: string;
   slug: string;
   publishedAt: string;
+  blogPost: boolean;
 
-  get coverImg() {
-    /*eslint-env node*/
-    const coverImg = require(`~/blogPosts/images/${this.slug}/cover.jpg`);
+  get cardMeta() {
+    const meta = {
+      link: `/projects/${this.slug}`,
+      coverImg: '',
+    };
 
-    return coverImg;
+    if (this.blogPost) {
+      meta.link = `/posts/${this.slug}`;
+      meta.coverImg = require(`~/blogPosts/images/${this.slug}/cover.jpg`);
+    } else {
+      meta.coverImg = require(`~/assets/images/projects/${this.slug}.jpg`);
+    }
+
+    return meta;
   }
 }
 </script>
-
 
 <style lang="scss" scoped>
 @import '~/designs/mixins/_media.scss';

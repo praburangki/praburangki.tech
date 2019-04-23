@@ -1,13 +1,13 @@
 export const generateMeta = (hid, content, property = 'name') => ({
   hid,
   [property]: hid,
-  content
+  content,
 });
 
 const defaultMeta = {
   title: 'Personal Site - Prabu Rangki',
   description: 'Personal website of Prabu Rangki',
-  baseUrl: 'https://praburangki.tech'
+  baseUrl: 'https://praburangki.tech',
 };
 
 export default [
@@ -21,5 +21,5 @@ export default [
   generateMeta('twitter:site', '@praburangki'),
   generateMeta('twitter:title', defaultMeta.title),
   generateMeta('twitter:description', defaultMeta.description),
-  generateMeta('twitter:image:alt', 'praburangki profile')
+  generateMeta('twitter:image:alt', 'praburangki profile'),
 ];

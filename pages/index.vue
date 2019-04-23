@@ -4,7 +4,7 @@
     section.container.mt-16
       .flex.flex-wrap
         template(v-for="post in allPosts")
-          BlogCard(:title="post.title" :slug="post.slug" :publishedAt="post.publishedAt")
+          BlogCard(:title="post.title" :slug="post.slug" :publishedAt="post.publishedAt" blogPost)
 </template>
 
 <script lang="ts">

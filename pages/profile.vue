@@ -13,11 +13,11 @@ import { generateMeta } from '~/lib/metaTags';
     GdgIcon,
   },
 })
-export default class SkillsPage extends Vue {
+export default class ProfilePage extends Vue {
   head() {
     return {
-      title: 'Skills',
-      meta: [generateMeta('title', 'Skills')],
+      title: 'Profile',
+      meta: [generateMeta('title', 'Profile')],
     };
   }
 }
@@ -25,7 +25,17 @@ export default class SkillsPage extends Vue {
 
 <template lang="pug">
   div
-    PageTitle SKILLS
+    PageTitle PROFILE
+    section.section
+      .container
+        .flex.flex-col.items-center
+          div
+            img.avatar.rounded-half.h-auto.mb-5(src="~assets/images/pic.jpg", alt="my avatar")
+          .text-center
+            h1.text-3xl.tracking-wide Hi
+            h1.text-4xl.tracking-wide I'm Prabu
+            h1.text-3xl.tracking-wide A Software Engineer
+    hr
     section.section
       .container
         p.headingMb
@@ -44,7 +54,6 @@ export default class SkillsPage extends Vue {
         .gdgIcon
           a(href="https://gdgbali.com", target="_blank", rel="noopener noreferrer")
             GdgIcon
-
 </template>
 
 <style lang="postcss" scoped>

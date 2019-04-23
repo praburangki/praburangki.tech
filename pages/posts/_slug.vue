@@ -193,7 +193,7 @@ export default class BlogPostPage extends Vue {
       article
         .relative.px-5.w-full.section-layout
           header: h1 {{ post.title }}
-          .mt-5 {{ post.publishedAt}}
+          .mt-5 {{ post.publishedAt }}
         .relative.w-full
           PostImg(cover)
         .relative.px-5.w-full.section-layout
