@@ -1,9 +1,9 @@
 <template lang="pug">
-  .w-full.md__w-1--2.py-3.lg__px-5.md__px-3.column
+  .w-full.md__w-1--2.py-3.lg__px-5.md__px-3.mb-16
     nuxt-link(:to="`/posts/${slug}`").blogsCard
       .thumbnail(:style="{'background-image': `url('${coverImg}')`}")
-      .description.text-center
-        .is-size-5: strong {{ title }}
+      .flex.flex-col.flex-1.items-center.justify-center.text-center
+        h3.text-xl.font-bold.my-3 {{ title }}
         p {{ publishedAt }}
 </template>
 
@@ -30,10 +30,6 @@ export default class BlogCard extends Vue {
 
 <style lang="scss" scoped>
 @import '~/designs/mixins/_media.scss';
-.column {
-  margin-bottom: 70px;
-}
-
 .blogsCard {
   display: flex;
   flex-direction: column;
@@ -54,7 +50,7 @@ export default class BlogCard extends Vue {
     overflow: hidden;
     background-position: center;
     background-size: cover;
-    box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.75);
+    box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.75);
 
     @include media-min(767px) {
       width: 85%;
@@ -67,18 +63,6 @@ export default class BlogCard extends Vue {
       width: 100%;
       height: auto;
       transform: translate(-50%, -50%);
-    }
-  }
-
-  .description {
-    display: flex;
-    flex: 1 0 0;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    p {
-      margin-top: 20px;
     }
   }
 }

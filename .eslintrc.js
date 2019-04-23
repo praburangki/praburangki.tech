@@ -20,7 +20,6 @@ module.exports = {
     'no-undef': 'error',
     'no-unused-vars': 'error',
     'require-jsdoc': 'off',
-    'no-console': ['error', { allow: ['warn', 'error'] }],
     '@typescript-eslint/indent': ['error', 2],
     '@typescript-eslint/explicit-function-return-type': ['off'],
     '@typescript-eslint/camelcase': ['error', { properties: 'never' }],

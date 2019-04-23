@@ -33,6 +33,25 @@ const config: NuxtConfiguration = {
     whitelistPatternsChildren: [/navWrapper$/, /portoCardColumn$/],
   },
   build: {
+    postcss: {
+      plugins: [
+        require('postcss-import'),
+        require('postcss-url'),
+        require('tailwindcss')('./designs/tailwind.config.js'),
+        require('autoprefixer')({
+          cascade: false,
+          grid: true,
+        }),
+        require('postcss-preset-env')({
+          stage: 0,
+        }),
+        require('cssnano')({
+          preset: 'default',
+          discardComments: { removeAll: true },
+          zindex: false,
+        }),
+      ],
+    },
     extractCSS: true,
     extend(config, ctx) {
       if (ctx.isDev && ctx.isClient) {
@@ -80,7 +99,6 @@ const config: NuxtConfiguration = {
           },
         },
       });
-      console.log(config.module.rules);
     },
   },
   generate: {

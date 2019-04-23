@@ -3,6 +3,11 @@ import { Component, Vue } from 'nuxt-property-decorator';
 import DynamicMarkdown from '~/components/blogs/DynamicMarkdown.vue';
 import ToggleTheme from '~/components/blogs/ToggleTheme.vue';
 import PostImg from '~/components/blogs/PostImg.vue';
+// import 'prismjs/themes/prism.css';
+// import 'prismjs/plugins/normalize-whitespace/prism-normalize-whitespace.js';
+import 'prismjs';
+import '~/designs/components/prism-one-dark.css';
+import Prism from 'vue-prism-component';
 
 import { generateMeta } from '~/lib/metaTags';
 let mediumZoom = null;
@@ -18,6 +23,7 @@ const baseUrl = 'https://praburangki.tech';
     DynamicMarkdown,
     ToggleTheme,
     PostImg,
+    Prism,
   },
 })
 export default class BlogPostPage extends Vue {
@@ -26,6 +32,12 @@ export default class BlogPostPage extends Vue {
   post;
   imgPathSrc;
   articleUrl;
+  coba = `
+    export const getters = {
+      getPost: state => slug => state.posts.find(post => post.slug === slug),
+      latestPosts: state => state.postAttributes.slice(0, 4),
+    };
+  `;
 
   asyncData({ store, params }) {
     const post = store.getters.getPost(params.slug) || {};
@@ -112,6 +124,31 @@ export default class BlogPostPage extends Vue {
     if ((window.navigator as any).share) {
       this.isWebShareSupported = true;
     }
+
+    // Prism.plugins.NormalizeWhitespace.setDefaults({
+    //   'remove-trailing': true,
+    //   'remove-indent': true,
+    //   'left-trim': true,
+    //   'right-trim': true,
+    //   'break-lines': 80,
+    //   indent: 2,
+    //   'remove-initial-line-feed': false,
+    //   'tabs-to-spaces': 4,
+    //   'spaces-to-tabs': 4,
+    // });
+
+    // console.log(Prism);
+
+    // Prism.highlightAll();
+    //   `
+    //   export const getters = {
+    //     getPost: state => slug => state.posts.find(post => post.slug === slug),
+    //     latestPosts: state => state.postAttributes.slice(0, 4),
+    //   };
+    //   `,
+    //   Prism.languages['javascript']
+    // );
+    // this.coba = apa;
   }
 
   beforeDestroy() {
@@ -149,6 +186,8 @@ export default class BlogPostPage extends Vue {
 
 <template lang="pug">
   section.blog
+    .mb-32
+      Prism(language="javascript" :code="`export const getters = {getPost: state => slug => state.posts.find(post => post.slug === slug),latestPosts: state => state.postAttributes.slice(0, 4),};`")
     ToggleTheme(@toggleTheme="toggleTheme", :checked="theme === 'dark'")
     .section-content
       article
