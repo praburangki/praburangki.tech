@@ -17,6 +17,7 @@ export default class Javascript30Page extends Vue {
     generateLinks('drumkit', 'Drumkit'),
     generateLinks('clock', 'Clock'),
     generateLinks('css-variables', 'CSS Variables'),
+    generateLinks('flex-gallery', 'Flex Gallery'),
   ];
 }
 </script>
