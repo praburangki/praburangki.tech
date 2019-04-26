@@ -18,6 +18,7 @@ export default class Javascript30Page extends Vue {
     generateLinks('clock', 'Clock'),
     generateLinks('css-variables', 'CSS Variables'),
     generateLinks('flex-gallery', 'Flex Gallery'),
+    generateLinks('type-ahead', 'Type Ahead'),
   ];
 }
 </script>
