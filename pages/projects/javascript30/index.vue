@@ -16,6 +16,7 @@ export default class Javascript30Page extends Vue {
   links = [
     generateLinks('drumkit', 'Drumkit'),
     generateLinks('clock', 'Clock'),
+    generateLinks('css-variables', 'CSS Variables'),
   ];
 }
 </script>
