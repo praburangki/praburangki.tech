@@ -10,6 +10,9 @@ const postsList = fs
   .map(file => path.basename(file, '.md'));
 
 const config: NuxtConfiguration = {
+  server: {
+    port: 3002,
+  },
   head: {
     title: 'Personal Site',
     titleTemplate: '%s | praburangki',
