@@ -1,10 +1,12 @@
 <script lang="ts">
 import { Component, Vue, Prop } from 'nuxt-property-decorator';
 import PostImg from '~/components/blogs/PostImg.vue';
+import CodeSnippet from '~/components/blogs/CodeSnippet.vue';
 
 @Component({
   components: {
     PostImg,
+    CodeSnippet,
   },
 })
 export default class DynamicMarkdown extends Vue {

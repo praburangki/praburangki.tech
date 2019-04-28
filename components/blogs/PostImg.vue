@@ -12,7 +12,6 @@ export default class PostImg extends Vue {
 
   get postImg() {
     const slugUrl = this.$route.params.slug;
-    /*eslint-env node*/
     const imgSrc = this.cover
       ? require(`~/blogPosts/images/${slugUrl}/cover.jpg`)
       : require(`~/blogPosts/images/${slugUrl}/${this.name}`);
