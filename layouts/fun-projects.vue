@@ -7,7 +7,7 @@
     main
       .container
         h1.text-center.mb-16 Project - {{ $store.state.projects.title }}
-      v-app(dark)
+      v-app(light)
         v-content
           v-container
             nuxt

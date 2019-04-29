@@ -3,9 +3,6 @@ import * as path from 'path';
 import * as fs from 'fs';
 import NuxtConfiguration from '@nuxt/config';
 
-const nodeExternals = require('webpack-node-externals');
-const VuetifyLoaderPlugin = require('vuetify-loader/lib/plugin');
-
 const sharp = require('responsive-loader/sharp');
 
 const postsList = fs
@@ -28,7 +25,7 @@ const config: NuxtConfiguration = {
   },
   loading: { color: '#00796b' },
   css: ['~/designs/main.scss'],
-  plugins: [{ src: '~/plugins/lazysizes', ssr: false }, '~/plugins/vuetify.ts'],
+  plugins: [{ src: '~/plugins/lazysizes', ssr: false }],
   modules: ['nuxt-purgecss', 'nuxt-webfontloader'],
   webfontloader: {
     google: {
@@ -59,17 +56,7 @@ const config: NuxtConfiguration = {
       ],
     },
     extractCSS: true,
-    transpile: [/^vuetify/],
-    plugins: [new VuetifyLoaderPlugin()],
     extend(config, ctx) {
-      if (process.server) {
-        config.externals = [
-          nodeExternals({
-            whitelist: [/^vuetify/],
-          }),
-        ];
-      }
-
       if (ctx.isDev && ctx.isClient) {
         config.module.rules.push({
           enforce: 'pre',
